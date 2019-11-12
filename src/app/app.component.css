@@ -1,0 +1,32 @@
+.example-icon {
+  padding: 0 14px;
+  cursor: pointer;
+}
+
+/* .example-spacer {
+  flex: 1 1 auto;
+} */
+
+.example-container {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.example-sidenav-content {
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  width: 20vw;
+  padding: 20px;
+}
+
+@media(max-width: 800px) {
+  .example-sidenav {
+    width: 38vw;
+    padding: 20px;
+  }
+}

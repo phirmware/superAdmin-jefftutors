@@ -1,0 +1,12 @@
+mat-spinner {
+  margin: 30% auto;
+}
+
+span{
+  font-weight: bold;
+  color: rgb(62, 67, 73);
+}
+
+mat-form-field{
+  width: 100%;
+}

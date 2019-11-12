@@ -1,0 +1,12 @@
+table {
+  width: 100%;
+}
+
+mat-spinner {
+  margin: 30% auto;
+}
+
+#link {
+  color: rgb(20, 69, 161);
+  cursor: pointer;
+}

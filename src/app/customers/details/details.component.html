@@ -1,0 +1,83 @@
+<button mat-raised-button color="primary" routerLink="/customers">
+  <mat-icon>arrow_back_ios</mat-icon> Back
+</button>
+
+<div class="loader" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="!loading">
+  <mat-card>
+    <mat-card-title>Customer's Details</mat-card-title>
+    <mat-card-content>
+      <p>
+        <mat-list role="list">
+          <mat-list-item role="listitem"><span>Username </span> : {{ user?.username }}</mat-list-item>
+          <mat-list-item role="listitem"><span>Email </span> : {{ user?.email }}</mat-list-item>
+          <mat-list-item role="listitem"><span>Phone </span> : {{ user?.phone }}</mat-list-item>
+        </mat-list>
+      </p>
+    </mat-card-content>
+  </mat-card>
+  <br />
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Edit Customer data
+        </mat-panel-title>
+        <mat-panel-description>
+          Username Email
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <form class="example-form" style="width: 100%;">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Email" name="username" [(ngModel)]="username">
+          <mat-hint>Email</mat-hint>
+          <mat-error *ngIf="error">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Username" name="email" [(ngModel)]="email">
+          <mat-hint>Username</mat-hint>
+          <mat-error *ngIf="error">
+            Username is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <br />
+        <button mat-raised-button color="primary" (click)="editCustomer()">Submit</button>
+      </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <br />
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Customers Subscribed Courses
+        </mat-panel-title>
+        <mat-panel-description>
+          List
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let course of courses"><span
+            style="padding: 40px;">{{ course.course_name }}</span>-<span>{{ course.course_code }}</span></mat-list-item>
+      </mat-list>
+      <br>
+      <form>
+        <h3>Add Course To User</h3>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Course" #course>
+          <mat-hint>Course Code</mat-hint>
+        </mat-form-field>
+        <br />
+        <br />
+        <button mat-raised-button color="primary" (click)="addCourseToUser(course.value)">Add</button>
+      </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
