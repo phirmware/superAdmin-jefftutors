@@ -28,7 +28,7 @@ export class ListComponent implements OnInit {
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
-      duration: 2000,
+      duration: 4000,
     });
   }
 
@@ -39,7 +39,8 @@ export class ListComponent implements OnInit {
       this.dataSource = response;
       this.loading = false;
     }, (error: HttpErrorResponse) => {
-      this.openSnackBar(error.message, 'close');
+      this.loading = false;
+      this.openSnackBar(error.error.message, 'close');
       this.dataSource = [];
     });
   }

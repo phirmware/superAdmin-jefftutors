@@ -20,6 +20,11 @@ export class DetailsService {
     return this.http.post(`${this.url}user/${id}/update`, credentials);
   }
 
+  deleteCustomer(id: string) {
+    const token = localStorage.getItem('token');
+    return this.http.post(`${this.url}user/${id}/delete`, {token});
+  }
+
   addCourseToCustomer(credentials: { username: string, token: string, course_code: string }) {
     return this.http.post(`${this.url}course/add`, credentials);
   }

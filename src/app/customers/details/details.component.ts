@@ -20,7 +20,7 @@ export class DetailsComponent implements OnInit {
   email: string;
   courses: any[];
 
-  constructor(private route: ActivatedRoute, private router: Router, private service: DetailsService,private _snackBar: MatSnackBar) { }
+  constructor(private route: ActivatedRoute, private router: Router, private service: DetailsService, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.loading = true;
@@ -78,6 +78,16 @@ export class DetailsComponent implements OnInit {
     }, (error: HttpErrorResponse) => {
       console.log(error);
       this.openSnackBar(error.error.statusText, 'close');
+    });
+  }
+
+  deleteUser() {
+    this.service.deleteCustomer(this.id).subscribe(response => {
+      this.router.navigate(['/customers/list']);
+      console.log(response);
+    }, (error: HttpErrorResponse) => {
+      console.log(error);
+      this.openSnackBar('Failed', 'close');
     });
   }
 

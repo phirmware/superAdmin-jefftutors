@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 interface LoginResponse {
   token: string;
@@ -30,6 +31,8 @@ export class LoginComponent implements OnInit {
       console.log(response);
       localStorage.setItem('token', response.token);
       this.router.navigate(['/overview']);
+    }, (error: HttpErrorResponse) => {
+      console.log(error);
     });
   }
 
