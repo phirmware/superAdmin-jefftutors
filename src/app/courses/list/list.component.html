@@ -1,3 +1,24 @@
-<p>
-  list works!
-</p>
+<div class="loader" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<mat-accordion *ngIf="!loading">
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+    *ngFor="let course of courses">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{course?.course_name}}
+      </mat-panel-title>
+      <mat-panel-description>
+        N {{course?.course_price/100}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>Course Code <span class="example-spacer"></span> <span>{{ course?.course_code }}</span> </p>
+    <p>Views <span class="example-spacer"></span> <span>{{ course?.views }}</span> </p>
+    <p>Number of Videos <span class="example-spacer"></span> <span>{{ course?.number_of_courses }}</span></p>
+    <mat-action-row>
+      <button mat-button color="primary">View</button>
+      <button mat-button color="warn">Delete</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>

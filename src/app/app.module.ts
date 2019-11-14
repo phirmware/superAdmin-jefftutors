@@ -10,13 +10,14 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthguardService } from './authguard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
   { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
-  { path: 'customers', loadChildren: './customers/customers.module#CustomersModule' },
-  { path: 'courses', loadChildren: './courses/courses.module#CoursesModule' },
-  { path: 'overview', loadChildren: './overview/overview.module#OverviewModule' }
+  { path: 'customers', loadChildren: './customers/customers.module#CustomersModule', canActivate: [AuthguardService] },
+  { path: 'courses', loadChildren: './courses/courses.module#CoursesModule', canActivate: [AuthguardService]  },
+  { path: 'overview', loadChildren: './overview/overview.module#OverviewModule', canActivate: [AuthguardService]  }
 ];
 
 @NgModule({

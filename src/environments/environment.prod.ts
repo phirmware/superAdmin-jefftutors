@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  url : 'https://jefftutors-node.nerdeveloper.now.sh/api/admin/'
+  url : 'https://jefftutors-node.nerdeveloper.now.sh/api/admin/',
+  base : 'https://jefftutors-node.nerdeveloper.now.sh/api/'
 };
