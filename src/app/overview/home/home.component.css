@@ -1,6 +1,10 @@
 mat-card {
-  width: 100%;
+  width: 400px;
   height: 40%;
   border-radius: 5px;
   margin: 10px;
+}
+
+span{
+  width: 40px;
 }

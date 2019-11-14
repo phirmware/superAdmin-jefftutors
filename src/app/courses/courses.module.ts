@@ -7,6 +7,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { DetailsComponent } from './details/details.component';
+
 
 
 @NgModule({
@@ -18,6 +20,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatButtonModule,
     MatProgressSpinnerModule,
   ],
-  declarations: [ListComponent]
+  declarations: [ListComponent, DetailsComponent]
 })
 export class CoursesModule { }

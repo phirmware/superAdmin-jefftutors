@@ -11,6 +11,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthguardService } from './authguard.service';
+import { CoursesModule } from './courses/courses.module';
+import { CustomersModule } from './customers/customers.module';
 
 const routes: Routes = [
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
@@ -22,7 +24,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,8 @@ const routes: Routes = [
     MatIconModule,
     HttpClientModule,
     MatProgressSpinnerModule,
+    CoursesModule,
+    CustomersModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

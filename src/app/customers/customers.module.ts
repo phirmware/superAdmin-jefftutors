@@ -19,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MatTableModule,
     HttpClientModule,
     MatProgressSpinnerModule,
+    MatProgressBarModule,
     MatSnackBarModule,
     MatCardModule,
     MatListModule,
@@ -38,7 +40,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MatInputModule,
     FormsModule,
     MatToolbarModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   declarations: [ListComponent, DetailsComponent]
 })

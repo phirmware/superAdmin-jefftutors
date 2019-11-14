@@ -17,7 +17,7 @@
     <p>Views <span class="example-spacer"></span> <span>{{ course?.views }}</span> </p>
     <p>Number of Videos <span class="example-spacer"></span> <span>{{ course?.number_of_courses }}</span></p>
     <mat-action-row>
-      <button mat-button color="primary">View</button>
+      <button mat-button color="primary" routerLink="/courses/course" [queryParams]="{id:course?._id}">View</button>
       <button mat-button color="warn">Delete</button>
     </mat-action-row>
   </mat-expansion-panel>
