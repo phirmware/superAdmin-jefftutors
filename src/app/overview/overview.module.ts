@@ -5,6 +5,7 @@ import { OverviewRoutingModule } from './overview-routing.module';
 import { HomeComponent } from './home/home.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { MatCardModule } from '@angular/material/card';
     CommonModule,
     OverviewRoutingModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressSpinnerModule,
   ],
   declarations: [HomeComponent]
 })

@@ -1,6 +1,6 @@
 .example-form {
-  min-width: 150px;
-  max-width: 500px;
+  /* min-width: 150px;
+  max-width: 500px; */
   width: 100%;
 }
 
@@ -11,4 +11,19 @@
 .example-button-row button,
 .example-button-row a {
   margin-right: 8px;
+}
+
+.example-icon{
+  margin: auto;
+}
+
+mat-card{
+  width: 60%;
+  margin: auto;
+  text-align: center;
+}
+
+mat-card>form{
+  margin: auto;
+  width: 100%;
 }

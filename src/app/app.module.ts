@@ -11,15 +11,14 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthguardService } from './authguard.service';
-import { CoursesModule } from './courses/courses.module';
-import { CustomersModule } from './customers/customers.module';
+import { MatButtonModule } from '@angular/material/button';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'auth', pathMatch: 'full' },
+  { path: '', redirectTo: 'overview', pathMatch: 'full' },
   { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
   { path: 'customers', loadChildren: './customers/customers.module#CustomersModule', canActivate: [AuthguardService] },
   { path: 'courses', loadChildren: './courses/courses.module#CoursesModule', canActivate: [AuthguardService]  },
-  { path: 'overview', loadChildren: './overview/overview.module#OverviewModule', canActivate: [AuthguardService]  }
+  { path: 'overview', loadChildren: './overview/overview.module#OverviewModule', canActivate: [AuthguardService], }
 ];
 
 @NgModule({
@@ -36,8 +35,7 @@ const routes: Routes = [
     MatIconModule,
     HttpClientModule,
     MatProgressSpinnerModule,
-    CoursesModule,
-    CustomersModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

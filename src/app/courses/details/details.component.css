@@ -1,3 +1,8 @@
 mat-spinner {
   margin: 15% auto;
 }
+
+mat-card{
+  text-align: center;
+  font-weight: bold;
+}

@@ -19,10 +19,13 @@ export class ListComponent implements OnInit {
     this.getAllCourses();
   }
 
+  changeBarTitle() {
+    return 'Courses List';
+  }
+
   getAllCourses() {
     this.loading = true;
     this.service.getAllCourses().subscribe(response => {
-      console.log(response);
       this.courses = response;
       this.loading = false;
     }, (error: HttpErrorResponse) => {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListService } from './list.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { EventEmitter } from 'events';
 
 
 export interface PeriodicElement {
@@ -32,10 +33,14 @@ export class ListComponent implements OnInit {
     });
   }
 
+  changeBarTitle() {
+    return 'Customers List';
+  }
+
   ngOnInit() {
+
     this.loading = true;
     this.service.getAllCustomers(localStorage.getItem('token')).subscribe(response => {
-      console.log(response);
       this.dataSource = response;
       this.loading = false;
     }, (error: HttpErrorResponse) => {

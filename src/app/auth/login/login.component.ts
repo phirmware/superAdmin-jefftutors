@@ -22,13 +22,16 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  changeBarTitle() {
+    return 'Login';
+  }
+
   login(email: string, password: string) {
     if (!email || !password) {
       this.error = true;
       return;
     }
     this.service.login({email, password}).subscribe((response: LoginResponse) => {
-      console.log(response);
       localStorage.setItem('token', response.token);
       this.router.navigate(['/overview']);
     }, (error: HttpErrorResponse) => {

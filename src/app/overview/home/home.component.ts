@@ -14,15 +14,25 @@ export class HomeComponent implements OnInit {
   numberOfCourses: number;
   customers: any;
   numberOfCustomers: number;
+  coursesLoading = false;
+  customerLoading = false;
 
   constructor(private courseListService: ListService, private customerListService: Clist ) { }
 
+
+  changeBarTitle() {
+    return 'Overview';
+  }
+
   ngOnInit() {
     const token = localStorage.getItem('token');
+    this.coursesLoading = true;
+    this.customerLoading = true;
 
     this.courseListService.getAllCourses().subscribe(response => {
       this.courses = response;
       this.numberOfCourses = this.courses.length;
+      this.coursesLoading = false;
     }, (error: HttpErrorResponse) => {
       console.log(error);
     });
@@ -30,6 +40,7 @@ export class HomeComponent implements OnInit {
     this.customerListService.getAllCustomers(token).subscribe(response => {
       this.customers = response;
       this.numberOfCustomers = this.customers.length;
+      this.customerLoading = false;
     }, (error: HttpErrorResponse) => {
       console.log(error);
     });

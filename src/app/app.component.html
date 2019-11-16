@@ -5,14 +5,14 @@
   </mat-toolbar-row>
   <mat-toolbar-row style="text-transform: capitalize;">
     <mat-icon class="example-icon" mat-button aria-hidden="false" aria-label="Example heart icon"
-      (click)="drawer.toggle()">view_list</mat-icon>
+      (click)="drawer.toggle()">menu</mat-icon>
     <span class="example-spacer"></span>
     {{ title }}
   </mat-toolbar-row>
 </mat-toolbar>
 
 <mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
+  <mat-drawer #drawer class="example-sidenav mat-elevation-z8" mode="side">
     <mat-nav-list role="list">
       <mat-list-item role="listitem" (click)="navigate('overview')">Overview</mat-list-item>
       <mat-list-item role="listitem" (click)="navigate('customers')">Customers</mat-list-item>
@@ -25,7 +25,7 @@
     <!-- <button type="button" mat-button (click)="drawer.toggle()">
       Toggle sidenav
     </button> -->
-    <router-outlet></router-outlet>
+    <router-outlet (activate)="changeBarTitle($event)"></router-outlet>
   </div>
 
 </mat-drawer-container>

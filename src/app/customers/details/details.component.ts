@@ -27,7 +27,6 @@ export class DetailsComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.id = params['id'];
       this.service.getCustomer(this.id).subscribe(response => {
-        console.log(response);
         this.user = response;
         this.username = this.user.username;
         this.email = this.user.email;
@@ -40,6 +39,10 @@ export class DetailsComponent implements OnInit {
       });
   });
 
+  }
+
+  changeBarTitle() {
+    return 'Customer Details';
   }
 
   openSnackBar(message: string, action: string) {
@@ -55,7 +58,6 @@ export class DetailsComponent implements OnInit {
       token: localStorage.getItem('token')
     };
     this.service.editCustomer(obj, this.id).subscribe(response => {
-      console.log(response);
       this.router.navigate(['/customers']);
     }, (error: HttpErrorResponse) => {
       console.log(error);
@@ -74,7 +76,6 @@ export class DetailsComponent implements OnInit {
       token: localStorage.getItem('token')
     };
     this.service.addCourseToCustomer(obj).subscribe(response => {
-      console.log(response);
     }, (error: HttpErrorResponse) => {
       console.log(error);
       this.openSnackBar(error.error.statusText, 'close');
@@ -84,7 +85,6 @@ export class DetailsComponent implements OnInit {
   deleteUser() {
     this.service.deleteCustomer(this.id).subscribe(response => {
       this.router.navigate(['/customers/list']);
-      console.log(response);
     }, (error: HttpErrorResponse) => {
       console.log(error);
       this.openSnackBar('Failed', 'close');

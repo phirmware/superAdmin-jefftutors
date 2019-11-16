@@ -1,6 +1,21 @@
 <div>
-  <mat-card>Number Of Courses <div></div> {{ numberOfCourses }}</mat-card>
-  <mat-card>Number Of SignUps <div></div>{{ numberOfCustomers }} </mat-card>
+  <mat-card>Number Of Courses
+    <div class="loader" *ngIf="coursesLoading">
+      <mat-spinner></mat-spinner>
+    </div>
+    <div>
+      {{ numberOfCourses }}
+    </div>
+  </mat-card>
+  <mat-card>
+    Number Of SignUps
+    <div class="loader" *ngIf="customerLoading">
+      <mat-spinner></mat-spinner>
+    </div>
+    <div>
+      {{ numberOfCustomers }}
+    </div>
+  </mat-card>
   <mat-card>Simple card</mat-card>
   <mat-card>Simple card</mat-card>
 </div>

@@ -12,6 +12,7 @@ export class DetailsComponent implements OnInit {
 
   id: string;
   loading = false;
+  course: any;
 
   constructor(private route: ActivatedRoute, private service: DetailsService) { }
 
@@ -22,10 +23,15 @@ export class DetailsComponent implements OnInit {
     });
   }
 
+  changeBarTitle() {
+    return 'Course Details';
+  }
+
   getCourseDetails() {
     this.loading = true;
     this.service.getCourseDetails(this.id).subscribe(response => {
       console.log(response);
+      this.course = response;
       this.loading = false;
     }, (error: HttpErrorResponse) => {
       console.log(error);
