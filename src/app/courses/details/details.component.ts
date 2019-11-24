@@ -42,11 +42,9 @@ export class DetailsComponent implements OnInit {
   getCourseDetails() {
     this.loading = true;
     this.service.getCourseDetails(this.id).subscribe(response => {
-      console.log(response);
       this.course = response;
       this.loading = false;
     }, (error: HttpErrorResponse) => {
-      console.log(error);
       this.loading = false;
     });
   }

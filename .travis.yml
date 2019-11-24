@@ -1,0 +1,14 @@
+sudo: false
+language: node_js
+node_js:
+  - "10"
+notifications:
+  email: false
+
+before_script:
+  - npm install
+script:
+  - npm run build
+
+after_success:
+   - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then npm run deploy; fi
