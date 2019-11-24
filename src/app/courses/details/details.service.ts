@@ -13,7 +13,7 @@ export class DetailsService {
 
   getCourseDetails(id: string) {
     const token = localStorage.getItem('token');
-    return this.http.post(`${this.url}/course/${id}`, {token});
+    return this.http.post(`${this.url}course/${id}`, {token});
   }
 
 }

@@ -21,7 +21,7 @@ export class AppComponent {
   }
 
   navigate(header: string) {
-    if (!this.loginService.isLoggedIn()) { return; }
+    if (!this.loginService.isLoggedIn() || !header) { return; }
     this.router.navigate([`${header}`]);
   }
 
