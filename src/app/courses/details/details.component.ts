@@ -28,7 +28,7 @@ export class DetailsComponent implements OnInit {
     const navProperties: NavigationProperties[] = [
       {
         back: false,
-        title: 'Coures',
+        title: 'Courses',
         route: '/courses/list'
       },
       {

@@ -9,7 +9,7 @@
     <span class="example-spacer"></span>
     <span *ngFor="let t of title">
       <span class="title" [routerLink]="t?.route">
-        <span *ngIf="t?.back"> > </span>
+        <span *ngIf="t?.back"> <mat-icon>navigate_next</mat-icon> </span>
         {{ t?.title }}
       </span>
     </span>
