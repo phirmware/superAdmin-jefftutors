@@ -5,6 +5,13 @@ mat-card {
   margin: 10px;
 }
 
+@media(max-width: 450px) {
+  mat-card{
+    width: 60vw;
+    margin: 10px auto;
+  }
+}
+
 span{
   width: 40px;
 }

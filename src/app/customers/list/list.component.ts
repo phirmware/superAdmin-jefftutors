@@ -3,6 +3,7 @@ import { ListService } from './list.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { EventEmitter } from 'events';
+import { NavigationProperties } from 'src/app/lib/nav-interface';
 
 
 export interface PeriodicElement {
@@ -34,7 +35,14 @@ export class ListComponent implements OnInit {
   }
 
   changeBarTitle() {
-    return 'Customers List';
+    const navProperties: NavigationProperties[] = [
+      {
+        back: false,
+        title: 'Customers',
+        route: '/customers'
+      }
+    ];
+      return navProperties;
   }
 
   ngOnInit() {

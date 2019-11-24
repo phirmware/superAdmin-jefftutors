@@ -7,7 +7,12 @@
     <mat-icon class="example-icon" mat-button aria-hidden="false" aria-label="Example heart icon"
       (click)="drawer.toggle()">menu</mat-icon>
     <span class="example-spacer"></span>
-    {{ title }}
+    <span *ngFor="let t of title">
+      <span class="title" [routerLink]="t?.route">
+        <span *ngIf="t?.back"> > </span>
+        {{ t?.title }}
+      </span>
+    </span>
   </mat-toolbar-row>
 </mat-toolbar>
 

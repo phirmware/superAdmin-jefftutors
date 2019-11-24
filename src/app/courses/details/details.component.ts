@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DetailsService } from './details.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { NavigationProperties } from 'src/app/lib/nav-interface';
 
 @Component({
   selector: 'app-details',
@@ -24,7 +25,18 @@ export class DetailsComponent implements OnInit {
   }
 
   changeBarTitle() {
-    return 'Course Details';
+    const navProperties: NavigationProperties[] = [
+      {
+        back: false,
+        title: 'Coures',
+        route: '/courses/list'
+      },
+      {
+        back: true,
+        title: 'Details',
+      }
+    ];
+      return navProperties;
   }
 
   getCourseDetails() {

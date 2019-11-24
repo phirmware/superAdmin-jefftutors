@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListService } from './list.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { NavigationProperties } from 'src/app/lib/nav-interface';
 
 @Component({
   selector: 'app-list',
@@ -20,7 +21,14 @@ export class ListComponent implements OnInit {
   }
 
   changeBarTitle() {
-    return 'Courses List';
+    const navProperties: NavigationProperties[] = [
+      {
+        back: false,
+        title: 'Courses',
+        route: '/courses/list'
+      }
+    ];
+      return navProperties;
   }
 
   getAllCourses() {

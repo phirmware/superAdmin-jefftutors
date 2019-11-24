@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListService } from '../../courses/list/list.service';
 import { ListService as Clist } from '../../customers/list/list.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { NavigationProperties } from '../../lib/nav-interface';
 
 @Component({
   selector: 'app-home',
@@ -19,9 +20,15 @@ export class HomeComponent implements OnInit {
 
   constructor(private courseListService: ListService, private customerListService: Clist ) { }
 
-
   changeBarTitle() {
-    return 'Overview';
+    const navProperties: NavigationProperties[] = [
+    {
+      back: false,
+      title: 'Overview',
+      route: '/'
+    }
+  ];
+    return navProperties;
   }
 
   ngOnInit() {

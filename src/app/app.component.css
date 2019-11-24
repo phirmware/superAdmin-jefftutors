@@ -11,6 +11,13 @@
   flex: 1 1 auto;
 } */
 
+
+.title{
+  margin: 4px;
+  cursor: pointer;
+}
+
+
 .example-container {
   width: 100%;
   height: 100%;

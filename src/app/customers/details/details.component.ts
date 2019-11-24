@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DetailsService } from './details.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { NavigationProperties } from 'src/app/lib/nav-interface';
 
 @Component({
   selector: 'app-details',
@@ -42,7 +43,18 @@ export class DetailsComponent implements OnInit {
   }
 
   changeBarTitle() {
-    return 'Customer Details';
+    const navProperties: NavigationProperties[] = [
+      {
+        back: false,
+        title: 'Customers',
+        route: '/customers'
+      },
+      {
+        back: true,
+        title: 'Details',
+      }
+    ];
+      return navProperties;
   }
 
   openSnackBar(message: string, action: string) {
