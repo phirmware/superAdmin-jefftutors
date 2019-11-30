@@ -9,6 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DetailsComponent } from './details/details.component';
 import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 
@@ -20,7 +22,9 @@ import { MatCardModule } from '@angular/material/card';
     MatExpansionModule,
     MatButtonModule,
     MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+    MatListModule,
+    MatGridListModule,
   ],
   declarations: [ListComponent, DetailsComponent]
 })

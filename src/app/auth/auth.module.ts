@@ -10,6 +10,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatCardModule,
     MatButtonModule,
     HttpClientModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSnackBarModule,
   ],
   declarations: [LoginComponent]
 })

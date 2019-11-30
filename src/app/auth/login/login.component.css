@@ -17,6 +17,12 @@
   margin: auto;
 }
 
+mat-progress-bar{
+  position: absolute !important;
+  top: 0;
+  width: 100vw;
+}
+
 mat-card{
   width: 60%;
   margin: auto;

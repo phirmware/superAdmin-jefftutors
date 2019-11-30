@@ -4,5 +4,10 @@ mat-spinner {
 
 mat-card{
   text-align: center;
-  font-weight: bold;
+  margin: 10px;
+  /* font-weight: bold; */
+}
+
+mat-card>span{
+  text-transform: uppercase;
 }

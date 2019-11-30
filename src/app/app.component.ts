@@ -17,11 +17,15 @@ export class AppComponent {
 
   changeBarTitle(component: any) {
     this.title = component.changeBarTitle();
-    console.log(this.title);
   }
 
   navigate(header: string) {
-    if (!this.loginService.isLoggedIn() || !header) { return; }
+    if (!this.loginService.isLoggedIn()) {
+      this.router.navigate(['/auth']);
+      return;
+    } else if (!header) {
+      return;
+    }
     this.router.navigate([`${header}`]);
   }
 

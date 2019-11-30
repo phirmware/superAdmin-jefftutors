@@ -1,9 +1,38 @@
-<div class="loader" *ngIf="loading">
+<div class="container loader" *ngIf="loading">
   <mat-spinner></mat-spinner>
 </div>
 
-<div *ngIf="!loading">
+<div class="container" *ngIf="!loading">
   <mat-card style="text-transform: capitalize;">
-    {{course?.course_code}}
+    <span>{{course?.course_code}}</span>
+    <br>
+    {{course?.course_name}}
+  </mat-card>
+  <mat-card>
+    <mat-list>
+      <mat-list-item>
+        <p>Course Price: </p>
+        {{course?.course_price/100}}
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <p>Number of Views: </p>
+        {{course?.views}}
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <p>Videos: </p>
+        {{course?.number_of_courses}}
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-card>
+  <mat-card>
+    <mat-list>
+      <div *ngFor="let vid of videos">
+        <mat-list-item>{{ vid }}</mat-list-item>
+        <mat-divider></mat-divider>
+      </div>
+    </mat-list>
   </mat-card>
 </div>

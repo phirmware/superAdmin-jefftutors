@@ -14,6 +14,7 @@ export class DetailsComponent implements OnInit {
   id: string;
   loading = false;
   course: any;
+  videos: any[];
 
   constructor(private route: ActivatedRoute, private service: DetailsService) { }
 
@@ -43,7 +44,9 @@ export class DetailsComponent implements OnInit {
     this.loading = true;
     this.service.getCourseDetails(this.id).subscribe(response => {
       this.course = response;
+      this.videos = this.course.course_content;
       this.loading = false;
+      console.log(this.videos);
     }, (error: HttpErrorResponse) => {
       this.loading = false;
     });
