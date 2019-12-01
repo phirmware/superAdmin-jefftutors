@@ -2,7 +2,7 @@
   <mat-spinner></mat-spinner>
 </div>
 
-<div class="container">
+<div class="container animated fadeIn faster">
   <mat-accordion *ngIf="!loading">
     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
       *ngFor="let course of courses">
