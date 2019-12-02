@@ -3,8 +3,17 @@
   <mat-spinner></mat-spinner>
 </div>
 
-<div class="container accordion-container animated fadeIn faster">
-  <mat-accordion *ngIf="!loading">
+<div class="container accordion-container animated fadeIn faster" *ngIf="!loading">
+  <div style="margin: auto; text-align: center;">
+    <mat-form-field appearance="outline">
+      <mat-label>Filter</mat-label>
+      <input matInput placeholder="phirmware" (input)="filter($event.target.value)">
+      <mat-icon matSuffix>filter_list</mat-icon>
+    </mat-form-field>
+  </div>
+  <br>
+  <br>
+  <mat-accordion>
     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
       *ngFor="let sub of subscriptions">
       <mat-expansion-panel-header>
@@ -23,4 +32,3 @@
     </mat-expansion-panel>
   </mat-accordion>
 </div>
-

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationProperties } from 'src/app/lib/nav-interface';
 import { ListService } from './list.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { filterFunction } from 'src/app/lib/search';
 
 interface ServerResponse {
   data: object;
@@ -33,6 +34,11 @@ export class ListComponent implements OnInit {
       }
     ];
       return navProperties;
+  }
+
+  filter(value: string) {
+    const element = Array.from(document.getElementsByTagName('mat-expansion-panel'));
+    filterFunction(element, value);
   }
 
   getSubscriptions() {
