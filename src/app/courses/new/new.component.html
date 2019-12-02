@@ -1,15 +1,29 @@
 <div class="container animated fadeIn">
-  <mat-card>Add Course</mat-card>
+  <mat-card class="text-center">ADD COURSE</mat-card>
   <br>
   <mat-card>
     <div class="example-container">
       <mat-form-field>
-        <input matInput placeholder="Input">
+        <input matInput #course_name placeholder="Course Name">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput #course_code placeholder="Course Code">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput #course_price placeholder="Course Price">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput #number_of_videos placeholder="Number of Videos">
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput #course_content placeholder="Videos Seperated By Comma"></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput #course_description placeholder="Course Description"></textarea>
       </mat-form-field>
 
-      <mat-form-field>
-        <textarea matInput placeholder="Textarea"></textarea>
-      </mat-form-field>
+        <button mat-raised-button color="primary" (click)="addACourse(course_name.value, course_code.value, course_price.value, number_of_videos.value, course_description.value,course_content.value)">Submit</button>
+
     </div>
   </mat-card>
 </div>
