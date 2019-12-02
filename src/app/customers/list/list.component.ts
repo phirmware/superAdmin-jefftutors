@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ListService } from './list.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import { EventEmitter } from 'events';
 import { NavigationProperties } from 'src/app/lib/nav-interface';
 
 

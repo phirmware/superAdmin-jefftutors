@@ -1,0 +1,26 @@
+<div class="container loader" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div class="container accordion-container animated fadeIn faster">
+  <mat-accordion *ngIf="!loading">
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+      *ngFor="let sub of subscriptions">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{sub?.user}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{sub?.courseName}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>Expires - <span class="example-spacer"></span> <span>{{ sub?.expires | date:'medium' }}</span> </p>
+      <p>Subscription Id - <span class="example-spacer"></span> <span>{{ sub?._id }}</span></p>
+      <mat-action-row>
+        <button mat-button color="primary" routerLink="/courses/course" [queryParams]="{id:course?._id}">View</button>
+        <button mat-button color="warn" (click)="deleteSubscription(sub?._id)">Delete</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+

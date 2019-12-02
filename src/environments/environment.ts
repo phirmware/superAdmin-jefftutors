@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  // url: 'http://localhost:3000/api/admin/',
-  // base: 'http://localhost:3000/api/',
-  url : 'https://jefftutors-node.nerdeveloper.now.sh/api/admin/',
-  base : 'https://jefftutors-node.nerdeveloper.now.sh/api/'
+  url: 'http://localhost:3000/api/admin/',
+  base: 'http://localhost:3000/api/',
+  // url : 'https://jefftutors-node.nerdeveloper.now.sh/api/admin/',
+  // base : 'https://jefftutors-node.nerdeveloper.now.sh/api/'
 };
 
 /*
