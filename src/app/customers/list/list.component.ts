@@ -3,6 +3,7 @@ import { ListService } from './list.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { NavigationProperties } from 'src/app/lib/nav-interface';
+import { filterFunction } from 'src/app/lib/search';
 
 
 export interface PeriodicElement {
@@ -42,6 +43,11 @@ export class ListComponent implements OnInit {
       }
     ];
       return navProperties;
+  }
+
+  filter(value: string) {
+    const element = Array.from(document.getElementsByTagName('tr'));
+    filterFunction(element, value);
   }
 
   ngOnInit() {

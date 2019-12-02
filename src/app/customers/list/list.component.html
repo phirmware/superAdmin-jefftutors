@@ -3,6 +3,16 @@
 </div>
 
 <div class="container animated fadeIn faster">
+  <div style="margin: auto; text-align: center;">
+    <mat-form-field appearance="outline">
+      <mat-label>Filter</mat-label>
+      <input matInput placeholder="phirmware" (input)="filter($event.target.value)">
+      <mat-icon matSuffix>filter_list</mat-icon>
+    </mat-form-field>
+  </div>
+  <br>
+  <br>
+
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="!loading">
 
     <!--- Note that these columns can be defined in any order.
