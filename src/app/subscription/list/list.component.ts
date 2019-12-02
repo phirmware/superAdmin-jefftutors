@@ -16,6 +16,7 @@ export class ListComponent implements OnInit {
 
   loading = false;
   subscriptions: any;
+  fetching = false;
 
   constructor(private service: ListService) { }
 
@@ -43,14 +44,17 @@ export class ListComponent implements OnInit {
   }
 
   deleteSubscription(id: string) {
+    this.fetching = true;
     this.service.deleteSubscriptions(id).subscribe((response: ServerResponse) => {
       const elem = Array.from(document.querySelector('mat-accordion').children);
       elem.forEach((x: any) => {
         const shouldShow = x.textContent.indexOf(id) > -1;
         x.style.display = shouldShow ? 'none' : 'block';
       });
+      this.fetching = false;
     }, (error: HttpErrorResponse) => {
       console.log(error);
+      this.fetching = false;
     });
   }
 

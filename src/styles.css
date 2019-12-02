@@ -15,3 +15,7 @@ body {
   padding: 20px;
   min-height: 100vh;
 }
+
+mat-spinner {
+  margin: 15% auto;
+}
