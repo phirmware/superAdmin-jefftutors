@@ -18,7 +18,6 @@
       <p>Expires - <span class="example-spacer"></span> <span>{{ sub?.expires | date:'medium' }}</span> </p>
       <p>Subscription Id - <span class="example-spacer"></span> <span>{{ sub?._id }}</span></p>
       <mat-action-row>
-        <button mat-button color="primary" routerLink="/courses/course" [queryParams]="{id:course?._id}">View</button>
         <button mat-button color="warn" (click)="deleteSubscription(sub?._id)">Delete</button>
       </mat-action-row>
     </mat-expansion-panel>
