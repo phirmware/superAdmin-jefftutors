@@ -11,6 +11,9 @@ import { DetailsComponent } from './details/details.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { NewComponent } from './new/new.component';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -23,9 +26,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatButtonModule,
     MatProgressSpinnerModule,
     MatCardModule,
+    FormsModule,
+    MatInputModule,
     MatListModule,
     MatGridListModule,
   ],
-  declarations: [ListComponent, DetailsComponent]
+  declarations: [ListComponent, DetailsComponent, NewComponent]
 })
 export class CoursesModule { }
