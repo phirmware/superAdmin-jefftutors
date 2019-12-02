@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListService } from '../../courses/list/list.service';
-import { ListService as Clist } from '../../customers/list/list.service';
+import { ListService as CustomerListService } from '../../customers/list/list.service';
+import { ListService as SubscriptionListService } from '../../subscription/list/list.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NavigationProperties } from '../../lib/nav-interface';
 
@@ -15,10 +16,14 @@ export class HomeComponent implements OnInit {
   numberOfCourses: number;
   customers: any;
   numberOfCustomers: number;
+  subscriptions: any;
+  numberOfSubscriptions: number;
   coursesLoading = false;
   customerLoading = false;
+  subscriptionLoading = false;
 
-  constructor(private courseListService: ListService, private customerListService: Clist ) { }
+  constructor(private courseListService: ListService, private customerListService: CustomerListService,
+     private subscriptionList: SubscriptionListService ) { }
 
   changeBarTitle() {
     const navProperties: NavigationProperties[] = [
@@ -35,6 +40,7 @@ export class HomeComponent implements OnInit {
     const token = localStorage.getItem('token');
     this.coursesLoading = true;
     this.customerLoading = true;
+    this.subscriptionLoading = true;
 
     this.courseListService.getAllCourses().subscribe(response => {
       this.courses = response;
@@ -48,6 +54,14 @@ export class HomeComponent implements OnInit {
       this.customers = response;
       this.numberOfCustomers = this.customers.length;
       this.customerLoading = false;
+    }, (error: HttpErrorResponse) => {
+      console.log(error);
+    });
+
+    this.subscriptionList.getSubscriptions().subscribe(response => {
+      this.subscriptions = response;
+      this.numberOfSubscriptions = this.subscriptions.length;
+      this.subscriptionLoading = false;
     }, (error: HttpErrorResponse) => {
       console.log(error);
     });
