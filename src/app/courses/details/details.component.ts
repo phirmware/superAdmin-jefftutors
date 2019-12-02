@@ -46,7 +46,6 @@ export class DetailsComponent implements OnInit {
       this.course = response;
       this.videos = this.course.course_content;
       this.loading = false;
-      console.log(this.videos);
     }, (error: HttpErrorResponse) => {
       this.loading = false;
     });
