@@ -30,6 +30,9 @@ export class NewComponent implements OnInit {
 
   addACourse(course_name: string, course_code: string, course_price: string, number_of_courses: string,
      course_description: string, course_content: string ) {
+    if (!course_name || !course_code || !course_price || !number_of_courses || !course_description || !course_content) {
+      return;
+    }
     const credentials = {
       course_name,
       course_code,

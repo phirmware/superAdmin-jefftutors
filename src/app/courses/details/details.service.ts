@@ -16,4 +16,9 @@ export class DetailsService {
     return this.http.post(`${this.url}course/${id}`, {token});
   }
 
+  deleteCourse(id: string) {
+    const token = localStorage.getItem('token');
+    return this.http.post(`${this.url}course/${id}/delete`, {token});
+  }
+
 }

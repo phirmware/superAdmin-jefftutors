@@ -11,3 +11,7 @@ mat-card{
 mat-card>span{
   text-transform: uppercase;
 }
+
+button{
+  margin: 2px;
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DetailsService } from './details.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NavigationProperties } from 'src/app/lib/nav-interface';
@@ -16,7 +16,7 @@ export class DetailsComponent implements OnInit {
   course: any;
   videos: any[];
 
-  constructor(private route: ActivatedRoute, private service: DetailsService) { }
+  constructor(private route: ActivatedRoute, private service: DetailsService, private router: Router) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -48,6 +48,15 @@ export class DetailsComponent implements OnInit {
       this.loading = false;
     }, (error: HttpErrorResponse) => {
       this.loading = false;
+    });
+  }
+
+  deleteCourse(id: string) {
+    this.service.deleteCourse(id).subscribe(response => {
+      console.log(response);
+      this.router.navigate(['/courses/list']);
+    }, (error: HttpErrorResponse) => {
+      console.log(error);
     });
   }
 
