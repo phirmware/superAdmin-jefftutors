@@ -88,9 +88,9 @@ export class DetailsComponent implements OnInit {
       token: localStorage.getItem('token')
     };
     this.service.addCourseToCustomer(obj).subscribe(response => {
+      this.router.navigate(['/customers/list']);
     }, (error: HttpErrorResponse) => {
-      console.log(error);
-      this.openSnackBar(error.error.statusText, 'close');
+      this.openSnackBar(error.error.message, 'close');
     });
   }
 
