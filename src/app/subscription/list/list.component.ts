@@ -25,6 +25,7 @@ export class ListComponent implements OnInit {
     this.getSubscriptions();
   }
 
+  beforeNavigationProperties() {}
   changeBarTitle() {
     const navProperties: NavigationProperties[] = [
       {

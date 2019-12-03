@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
   constructor(private courseListService: ListService, private customerListService: CustomerListService,
      private subscriptionList: SubscriptionListService ) { }
 
+  beforeNavigationProperties() {}
   changeBarTitle() {
     const navProperties: NavigationProperties[] = [
     {

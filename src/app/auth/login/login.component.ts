@@ -24,6 +24,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  beforeNavigationProperties() {}
+
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
       duration: 2000,

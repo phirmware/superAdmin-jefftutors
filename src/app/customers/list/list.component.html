@@ -39,7 +39,7 @@
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> Id. </th>
       <td id="link" mat-cell *matCellDef="let element" routerLink="/customers/customer"
-        [queryParams]="{id:element._id}"> {{element?._id.substring(0, 5)}}... </td>
+        [queryParams]="{id:element?._id, name: element?.username}"> {{element?._id.substring(0, 5)}}... </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

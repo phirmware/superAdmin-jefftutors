@@ -15,18 +15,19 @@ export class AppComponent {
 
   constructor(private router: Router, private loginService: LoginService) {}
 
-  changeBarTitle(component: any) {
+  async changeBarTitle(component: any) {
+    await component.beforeNavigationProperties();
     this.title = component.changeBarTitle();
   }
 
-  navigate(header: string) {
+  navigate(header: string, query: any) {
     if (!this.loginService.isLoggedIn()) {
       this.router.navigate(['/auth']);
       return;
     } else if (!header) {
       return;
     }
-    this.router.navigate([`${header}`]);
+    this.router.navigate([`${header}`], {queryParams: query });
   }
 
 }

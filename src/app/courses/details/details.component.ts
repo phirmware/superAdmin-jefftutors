@@ -15,12 +15,17 @@ export class DetailsComponent implements OnInit {
   loading = false;
   course: any;
   videos: any[];
+  courseName: string;
 
   constructor(private route: ActivatedRoute, private service: DetailsService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  beforeNavigationProperties() {
     this.route.queryParams.subscribe(params => {
       this.id = params['id'];
+      this.courseName = params['name'];
       this.getCourseDetails();
     });
   }
@@ -34,7 +39,7 @@ export class DetailsComponent implements OnInit {
       },
       {
         back: true,
-        title: 'Details',
+        title: this.courseName,
       }
     ];
       return navProperties;
@@ -44,6 +49,7 @@ export class DetailsComponent implements OnInit {
     this.loading = true;
     this.service.getCourseDetails(this.id).subscribe(response => {
       this.course = response;
+      this.courseName = this.course.course_name;
       this.videos = this.course.course_content;
       this.loading = false;
     }, (error: HttpErrorResponse) => {

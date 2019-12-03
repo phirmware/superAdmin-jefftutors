@@ -36,6 +36,7 @@
     </mat-list>
   </mat-card>
   <mat-card>
-    <button mat-raised-button color="warn" (click)="deleteCourse(course?._id)">Delete</button><button mat-raised-button color="primary">Edit</button>
+    <button mat-raised-button color="warn" (click)="deleteCourse(course?._id)">Delete</button>
+    <button mat-raised-button color="primary" routerLink="/courses/edit" [queryParams]="{id:course?._id, name:course?.course_name}">Edit</button>
   </mat-card>
 </div>

@@ -14,6 +14,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { NewComponent } from './new/new.component';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { EditComponent } from './edit/edit.component';
 
 
 
@@ -30,7 +32,8 @@ import { MatInputModule } from '@angular/material/input';
     MatInputModule,
     MatListModule,
     MatGridListModule,
+    MatSnackBarModule,
   ],
-  declarations: [ListComponent, DetailsComponent, NewComponent]
+  declarations: [ListComponent, DetailsComponent, NewComponent, EditComponent]
 })
 export class CoursesModule { }

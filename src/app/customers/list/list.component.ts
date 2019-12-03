@@ -34,6 +34,7 @@ export class ListComponent implements OnInit {
     });
   }
 
+  beforeNavigationProperties() {}
   changeBarTitle() {
     const navProperties: NavigationProperties[] = [
       {

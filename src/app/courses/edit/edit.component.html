@@ -1,0 +1,30 @@
+<div class="container animated fadeIn">
+  <mat-card class="text-center text-uppercase">EDIT {{courseName}}</mat-card>
+  <br>
+  <mat-card>
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput #course_name placeholder="Course Name">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput #course_code placeholder="Course Code">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput #course_price placeholder="Course Price">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput #number_of_videos placeholder="Number of Videos">
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput #course_content placeholder="Videos Seperated By Comma"></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput #course_description placeholder="Course Description"></textarea>
+      </mat-form-field>
+
+        <button mat-raised-button color="primary">Submit</button>
+
+    </div>
+  </mat-card>
+</div>
+

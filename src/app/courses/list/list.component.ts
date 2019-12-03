@@ -20,6 +20,7 @@ export class ListComponent implements OnInit {
     this.getAllCourses();
   }
 
+  beforeNavigationProperties() {}
   changeBarTitle() {
     const navProperties: NavigationProperties[] = [
       {
@@ -37,7 +38,6 @@ export class ListComponent implements OnInit {
       this.courses = response;
       this.loading = false;
     }, (error: HttpErrorResponse) => {
-      console.log(error);
       this.loading = false;
     });
   }

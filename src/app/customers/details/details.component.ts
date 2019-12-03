@@ -42,6 +42,11 @@ export class DetailsComponent implements OnInit {
 
   }
 
+  beforeNavigationProperties() {
+    this.route.queryParams.subscribe(params => {
+      this.username = params['name'];
+    });
+  }
   changeBarTitle() {
     const navProperties: NavigationProperties[] = [
       {
@@ -51,7 +56,7 @@ export class DetailsComponent implements OnInit {
       },
       {
         back: true,
-        title: 'Details',
+        title: this.username,
       }
     ];
       return navProperties;

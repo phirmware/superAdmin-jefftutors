@@ -8,7 +8,7 @@
       (click)="drawer.toggle()">menu</mat-icon>
     <span class="example-spacer"></span>
     <span *ngFor="let t of title">
-      <span class="title" (click)="navigate(t?.route)">
+      <span class="title" (click)="navigate(t?.route, t?.queryParams)">
         <span *ngIf="t?.back"> > </span>
         {{ t?.title }}
       </span>
