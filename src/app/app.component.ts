@@ -20,7 +20,7 @@ export class AppComponent {
     this.title = component.changeBarTitle();
   }
 
-  navigate(header: string, query: any) {
+  navigate(header: string, query?: any) {
     if (!this.loginService.isLoggedIn()) {
       this.router.navigate(['/auth']);
       return;
