@@ -31,7 +31,9 @@ export class NewComponent implements OnInit {
   }
 
   openSnackbar(message: string, action: string) {
-    this.snackBar.open(message, action);
+    this.snackBar.open(message, action, {
+      duration: 3000
+    });
   }
 
   addACourse(course_name: string, course_code: string, course_price: string, number_of_courses: string,
@@ -50,7 +52,6 @@ export class NewComponent implements OnInit {
       token: localStorage.getItem('token')
     };
     this.service.createCourse(credentials).subscribe(response => {
-      console.log(response);
       this.router.navigate(['/courses/list']);
     }, (error: HttpErrorResponse) => {
       this.openSnackbar('An error ocurred', 'close');

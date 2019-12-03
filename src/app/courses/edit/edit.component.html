@@ -4,25 +4,25 @@
   <mat-card>
     <div class="example-container">
       <mat-form-field>
-        <input matInput #course_name placeholder="Course Name">
+        <input matInput name="course_name" [(ngModel)]="course_name" placeholder="Course Name">
       </mat-form-field>
       <mat-form-field>
-        <input matInput #course_code placeholder="Course Code">
+        <input matInput name="course_code" [(ngModel)]="course_code" placeholder="Course Code">
       </mat-form-field>
       <mat-form-field>
-        <input matInput #course_price placeholder="Course Price">
+        <input matInput name="course_price" [(ngModel)]="course_price" placeholder="Course Price">
       </mat-form-field>
       <mat-form-field>
-        <input matInput #number_of_videos placeholder="Number of Videos">
+        <input matInput name="number_of_videos" [(ngModel)]="number_of_courses" placeholder="Number of Videos">
       </mat-form-field>
       <mat-form-field>
-        <textarea matInput #course_content placeholder="Videos Seperated By Comma"></textarea>
+        <textarea matInput name="course_content" [(ngModel)]="course_content" placeholder="Videos Seperated By Comma"></textarea>
       </mat-form-field>
       <mat-form-field>
-        <textarea matInput #course_description placeholder="Course Description"></textarea>
+        <textarea matInput name="course_description" [(ngModel)]="course_description" placeholder="Course Description"></textarea>
       </mat-form-field>
 
-        <button mat-raised-button color="primary">Submit</button>
+        <button mat-raised-button color="primary" (click)="editCourse()">Submit</button>
 
     </div>
   </mat-card>
