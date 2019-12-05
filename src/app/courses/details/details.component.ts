@@ -16,6 +16,7 @@ export class DetailsComponent implements OnInit {
   course: any;
   videos: any[];
   courseName: string;
+  deleteCount = 0;
 
   constructor(private route: ActivatedRoute, private service: DetailsService, private router: Router) { }
 
@@ -58,6 +59,10 @@ export class DetailsComponent implements OnInit {
   }
 
   deleteCourse(id: string) {
+    if (this.deleteCount < 5) {
+      this.deleteCount ++;
+      return;
+    }
     this.service.deleteCourse(id).subscribe(response => {
       console.log(response);
       this.router.navigate(['/courses/list']);
