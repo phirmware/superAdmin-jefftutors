@@ -1,12 +1,13 @@
-<mat-toolbar color="primary">
+<mat-toolbar>
   <mat-toolbar-row class="mat-elevation-z8">
     <span>Super Admin</span>
+    <span class="example-spacer"></span>
+    <button routerLink="/courses/new" color="primary" mat-raised-button> <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">add</mat-icon>Add Course</button>
     <!-- <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon> -->
   </mat-toolbar-row>
-  <mat-toolbar-row style="text-transform: capitalize;">
+  <mat-toolbar-row  color="primary" style="color:white;background: #673ab7; text-transform: capitalize;">
     <mat-icon class="example-icon" mat-button aria-hidden="false" aria-label="Example heart icon"
       (click)="drawer.toggle()">menu</mat-icon>
-    <span class="example-spacer"></span>
     <span *ngFor="let t of title">
       <span class="title" (click)="navigate(t?.route, t?.queryParams)">
         <span *ngIf="t?.back"> > </span>
