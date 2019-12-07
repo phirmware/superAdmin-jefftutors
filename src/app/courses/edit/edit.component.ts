@@ -49,7 +49,6 @@ export class EditComponent implements OnInit {
 
   getCourseDetails() {
     this.courseDetailsService.getCourseDetails(this.id).subscribe((response: CourseDetails) => {
-      console.log(response);
       this.course_code = response.course_code;
       this.course_content = response.course_content.join(',');
       this.course_description = response.course_description;
