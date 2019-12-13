@@ -5,11 +5,13 @@ mat-card {
 mat-expansion-panel {
   width: 80%;
   margin: 0px auto;
+  z-index: 10;
 }
 
 .loader{
   margin: 0px auto;
   height: 50px;
   width: 50px;
+  z-index: -1;
 }
 

@@ -1,9 +1,10 @@
+<mat-progress-bar mode="buffer" *ngIf="loading"></mat-progress-bar>
 <div class="container">
   <button mat-raised-button color="primary" (click)="generateCodes()">Generate Codes</button>
   <br>
   <br>
-  <mat-accordion *ngFor="let code of generatedCodes">
-    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+  <mat-accordion class="animated fadeIn" *ngFor="let code of generatedCodes">
+    <mat-expansion-panel class="animated slideInUp" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
         <mat-panel-title>
           {{code}}
@@ -16,7 +17,7 @@
       </mat-action-row>
     </mat-expansion-panel>
   </mat-accordion>
-  <div class="loader" *ngIf="loading">
+  <!-- <div class="loader" *ngIf="loading">
     <mat-spinner></mat-spinner>
-  </div>
+  </div> -->
 </div>

@@ -7,6 +7,7 @@ import { GenerateComponent } from './generate/generate.component';
 import {MatListModule} from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatProgressBarModule, MatProgressBar} from '@angular/material/progress-bar';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatListModule,
     MatExpansionModule,
     MatProgressSpinnerModule,
+    MatProgressBarModule,
   ],
   declarations: [GenerateComponent]
 })
