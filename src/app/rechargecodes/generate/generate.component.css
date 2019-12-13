@@ -1,0 +1,15 @@
+mat-card {
+  height: 40px;
+}
+
+mat-expansion-panel {
+  width: 80%;
+  margin: 0px auto;
+}
+
+.loader{
+  margin: 0px auto;
+  height: 50px;
+  width: 50px;
+}
+

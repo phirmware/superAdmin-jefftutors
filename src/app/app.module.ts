@@ -12,6 +12,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthguardService } from './authguard.service';
 import { MatButtonModule } from '@angular/material/button';
+import { RechargecodesModule } from './rechargecodes/rechargecodes.module';
 
 const routes: Routes = [
   { path: '', redirectTo: 'overview', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'customers', loadChildren: './customers/customers.module#CustomersModule', canActivate: [AuthguardService] },
   { path: 'courses', loadChildren: './courses/courses.module#CoursesModule', canActivate: [AuthguardService]  },
   { path: 'subscription', loadChildren: './subscription/subscription.module#SubscriptionModule', canActivate: [AuthguardService] },
+  { path: 'codes', loadChildren: './rechargecodes/rechargecodes.module#RechargecodesModule', canActivate: [AuthguardService] }
 ];
 
 @NgModule({
@@ -37,6 +39,7 @@ const routes: Routes = [
     HttpClientModule,
     MatProgressSpinnerModule,
     MatButtonModule,
+    RechargecodesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

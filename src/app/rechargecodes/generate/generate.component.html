@@ -1,0 +1,22 @@
+<div class="container">
+  <button mat-raised-button color="primary" (click)="generateCodes()">Generate Codes</button>
+  <br>
+  <br>
+  <mat-accordion *ngFor="let code of generatedCodes">
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{code}}
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-action-row>
+        <button mat-button color="warn">Delete</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <div class="loader" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
