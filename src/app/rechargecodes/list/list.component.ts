@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ListComponent implements OnInit {
 
-  fetching = false;
+  loading = false;
   codes: any;
 
   beforeNavigationProperties() {}
@@ -37,13 +37,13 @@ export class ListComponent implements OnInit {
   }
 
   showCodes() {
-    this.fetching = true;
+    this.loading = true;
     this.service.showCodes().subscribe(_response => {
-      this.fetching = false;
+      this.loading = false;
       console.log(_response);
       this.codes = _response;
     }, (error: HttpErrorResponse) => {
-      this.fetching = false;
+      this.loading = false;
     });
   }
 
