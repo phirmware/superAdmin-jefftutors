@@ -8,6 +8,10 @@ import {MatListModule} from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatProgressBarModule, MatProgressBar} from '@angular/material/progress-bar';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
+import { ListComponent } from './list/list.component';
+
 
 @NgModule({
   imports: [
@@ -19,7 +23,9 @@ import {MatProgressBarModule, MatProgressBar} from '@angular/material/progress-b
     MatExpansionModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
   ],
-  declarations: [GenerateComponent]
+  declarations: [GenerateComponent, ListComponent]
 })
 export class RechargecodesModule { }

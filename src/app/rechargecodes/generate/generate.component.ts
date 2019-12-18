@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationProperties } from '../../lib/nav-interface';
 import { GenerateService } from './generate.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-generate',
@@ -11,6 +13,9 @@ export class GenerateComponent implements OnInit {
   responseArray: any;
   generatedCodes = [];
   loading = false;
+  fetching = false;
+  color = 'accent';
+  checked = false;
 
   beforeNavigationProperties() {}
   changeBarTitle() {
@@ -24,9 +29,15 @@ export class GenerateComponent implements OnInit {
     return navProperties;
   }
 
-  constructor(private service: GenerateService) {}
+  constructor(private service: GenerateService, private _snackBar: MatSnackBar) {}
 
   ngOnInit() {
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 
   generateCodes() {
@@ -34,6 +45,9 @@ export class GenerateComponent implements OnInit {
     this.service.generateCodes().subscribe(_res => {
       this.responseArray = _res;
       this.addCodePeriodically();
+    }, (error: HttpErrorResponse) => {
+      console.log(error);
+      this.loading = false;
     });
   }
 
@@ -48,9 +62,19 @@ export class GenerateComponent implements OnInit {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         this.generatedCodes.push(this.responseArray[i]);
-        console.log(this.generatedCodes);
         resolve('1');
       }, 3000);
+    });
+  }
+
+  registerCode(code: string) {
+    const valid = this.generatedCodes.indexOf(code) !== -1 ? true : false;
+    if (!valid) {
+      return;
+    }
+    this.service.registerCode(code).subscribe(_response => {
+    }, (error: HttpErrorResponse) => {
+      this._snackBar.open(error.error.message, 'close');
     });
   }
 }

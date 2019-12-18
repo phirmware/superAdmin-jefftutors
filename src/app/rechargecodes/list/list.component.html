@@ -1,27 +1,19 @@
 <mat-progress-bar mode="buffer" *ngIf="loading"></mat-progress-bar>
 <mat-progress-bar mode="indeterminate" *ngIf="fetching"></mat-progress-bar>
 <div class="container">
-  <button mat-raised-button color="primary" (click)="generateCodes()">Generate Codes</button>
-  <button mat-raised-button color="primary" routerLink="/codes/list">Show Codes</button>
   <br>
   <br>
-  <mat-accordion class="animated fadeIn" *ngFor="let code of generatedCodes">
+  <mat-accordion *ngFor="let code of codes">
     <mat-expansion-panel class="animated slideInUp" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
-        <mat-panel-title>
-          {{code}}
+        <mat-panel-title [style.color]="code.valid ? 'black' : 'red'">
+          {{code.rcode}}
         </mat-panel-title>
         <mat-panel-description>
         </mat-panel-description>
       </mat-expansion-panel-header>
       <mat-action-row>
-        <mat-slide-toggle
-          class="example-margin"
-          [color]="color"
-          [checked]="checked"
-          (change)="registerCode(code)">
-        Approve
-      </mat-slide-toggle>
+        <button mat-raised-button color="warn" (click)="deleteCode(code._id)">Delete Code</button>
       </mat-action-row>
     </mat-expansion-panel>
   </mat-accordion>

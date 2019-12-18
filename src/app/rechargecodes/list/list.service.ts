@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
+
 @Injectable({
   providedIn: 'root'
 })
-export class GenerateService {
+export class ListService {
 
   url = environment.url;
   httpOptions = {
@@ -15,13 +16,13 @@ export class GenerateService {
     })
   };
 
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
 
-  generateCodes() {
-    return this._http.get(`${this.url}rechargecode`, this.httpOptions);
+  showCodes() {
+    return this._http.get(`${this.url}rechargecode/list`, this.httpOptions);
   }
 
-  registerCode(code: string) {
-    return this._http.post(`${this.url}rechargecode`, {code}, this.httpOptions);
+  deleteCode(id: string) {
+    return this._http.delete(`${this.url}rechargecode/${id}`, this.httpOptions);
   }
 }
