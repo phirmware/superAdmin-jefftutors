@@ -49,7 +49,10 @@ export class ListComponent implements OnInit {
 
   deleteCode(id: string) {
     this.service.deleteCode(id).subscribe(response => {
-      this.router.navigate(['/codes']);
+      const ids = this.codes.map((item: {_id: string}) => {
+        return item._id;
+      });
+      this.codes.splice(ids.indexOf(id), 1);
     }, (error: HttpErrorResponse) => {});
   }
 
