@@ -9,20 +9,26 @@ import { environment } from '../../../environments/environment';
 export class ListService {
 
   url = environment.url;
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      'x-access-token': localStorage.getItem('token')
-    })
-  };
 
   constructor(private _http: HttpClient) { }
 
   showCodes() {
-    return this._http.get(`${this.url}rechargecode/list`, this.httpOptions);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'x-access-token': localStorage.getItem('token')
+      })
+    };
+    return this._http.get(`${this.url}rechargecode/list`, httpOptions);
   }
 
   deleteCode(id: string) {
-    return this._http.delete(`${this.url}rechargecode/${id}`, this.httpOptions);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'x-access-token': localStorage.getItem('token')
+      })
+    };
+    return this._http.delete(`${this.url}rechargecode/${id}`, httpOptions);
   }
 }
