@@ -46,6 +46,7 @@ export class ListComponent implements OnInit {
     this.loading = true;
     this.service.getSubscriptions().subscribe(response => {
       this.subscriptions = response;
+      console.log(this.subscriptions);
       this.loading = false;
     });
   }
@@ -53,11 +54,10 @@ export class ListComponent implements OnInit {
   deleteSubscription(id: string) {
     this.fetching = true;
     this.service.deleteSubscriptions(id).subscribe((response: ServerResponse) => {
-      const elem = Array.from(document.querySelector('mat-accordion').children);
-      elem.forEach((x: any) => {
-        const shouldShow = x.textContent.indexOf(id) > -1;
-        x.style.display = shouldShow ? 'none' : 'block';
+      const ids = this.subscriptions.map((item: { _id: string; }) => {
+        return item._id;
       });
+      this.subscriptions.splice(ids.indexOf(id), 1);
       this.fetching = false;
     }, (error: HttpErrorResponse) => {
       console.log(error);
