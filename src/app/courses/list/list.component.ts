@@ -10,7 +10,6 @@ import { NavigationProperties } from 'src/app/lib/nav-interface';
 })
 export class ListComponent implements OnInit {
 
-  panelOpenState = false;
   courses: any;
   loading = false;
 

@@ -3,7 +3,6 @@
     <span style="color: #673ab7;font-weight: bolder;margin-left: 3vw;"><mat-icon>equalizer</mat-icon>Super Admin</span>
     <span class="example-spacer"></span>
     <button routerLink="/courses/new" color="primary" mat-raised-button> <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">add</mat-icon>Add Course</button>
-    <!-- <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon> -->
   </mat-toolbar-row>
   <mat-toolbar-row  color="primary" style="color:white;background: #673ab7; text-transform: capitalize;">
     <mat-icon class="example-icon" mat-button aria-hidden="false" aria-label="Example heart icon"
@@ -25,12 +24,11 @@
       <mat-list-item role="listitem" (click)="navigate('courses')">Courses</mat-list-item>
       <mat-list-item role="listitem" (click)="navigate('subscription')">Subscriptions</mat-list-item>
       <mat-list-item role="listitem" (click)="navigate('codes')">Codes</mat-list-item>
-      <!-- <mat-list-item role="listitem">Item 3</mat-list-item> -->
     </mat-nav-list>
   </mat-drawer>
 
   <div class="example-sidenav-content animated fadeIn">
-    <!-- <button type="button" mat-button (click)="drawer.toggle()">
+    <!-- <button type="button" mat-button mat-raised-button color="secondary" (click)="drawer.toggle()">
       Toggle sidenav
     </button> -->
     <router-outlet (activate)="changeBarTitle($event)"></router-outlet>

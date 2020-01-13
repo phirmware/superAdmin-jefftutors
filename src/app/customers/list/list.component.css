@@ -1,12 +1,6 @@
-table {
-  width: 100%;
-}
 
 mat-spinner {
   margin: 20% auto;
 }
 
-#link {
-  color: rgb(20, 69, 161);
-  cursor: pointer;
-}
+

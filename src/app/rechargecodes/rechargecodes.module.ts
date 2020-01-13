@@ -11,6 +11,7 @@ import {MatProgressBarModule, MatProgressBar} from '@angular/material/progress-b
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
 import { ListComponent } from './list/list.component';
+import { CodelistComponent } from './codelist/codelist.component';
 
 
 @NgModule({
@@ -26,6 +27,6 @@ import { ListComponent } from './list/list.component';
     MatSlideToggleModule,
     MatSnackBarModule,
   ],
-  declarations: [GenerateComponent, ListComponent]
+  declarations: [GenerateComponent, ListComponent, CodelistComponent]
 })
 export class RechargecodesModule { }

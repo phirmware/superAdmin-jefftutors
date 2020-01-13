@@ -21,7 +21,6 @@ export interface PeriodicElement {
 })
 export class ListComponent implements OnInit {
 
-  displayedColumns: string[] = ['username', 'email', 'phone', 'id'];
   dataSource: any;
   loading = false;
   durationInSeconds = 3;

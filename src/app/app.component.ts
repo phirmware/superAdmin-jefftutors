@@ -11,7 +11,6 @@ import { NavigationProperties } from './lib/nav-interface';
 })
 export class AppComponent {
   title: NavigationProperties[];
-  showFiller = false;
 
   constructor(private router: Router, private loginService: LoginService) {}
 

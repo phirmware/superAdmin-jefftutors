@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { CustomerlistComponent } from './list/customerlist/customerlist.component';
 
 @NgModule({
   imports: [
@@ -42,6 +43,6 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatToolbarModule,
     MatMenuModule,
   ],
-  declarations: [ListComponent, DetailsComponent]
+  declarations: [ListComponent, DetailsComponent, CustomerlistComponent]
 })
 export class CustomersModule { }

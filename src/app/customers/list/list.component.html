@@ -1,7 +1,6 @@
 <div class="container loader" *ngIf="loading">
   <mat-spinner></mat-spinner>
 </div>
-
 <div class="container animated fadeIn faster">
   <div style="margin: auto; text-align: center;">
     <mat-form-field appearance="outline">
@@ -11,38 +10,5 @@
     </mat-form-field>
   </div>
   <br>
-
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="!loading">
-
-    <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-
-    <!-- Position Column -->
-    <!-- Name Column -->
-    <ng-container matColumnDef="username">
-      <th mat-header-cell *matHeaderCellDef> Username </th>
-      <td mat-cell *matCellDef="let element"> {{element?.username}} </td>
-    </ng-container>
-
-    <!-- Email Column -->
-    <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef> Email </th>
-      <td mat-cell *matCellDef="let element"> {{element?.email}} </td>
-    </ng-container>
-
-    <!-- Phone Column -->
-    <ng-container matColumnDef="phone">
-      <th mat-header-cell *matHeaderCellDef> Phone </th>
-      <td mat-cell *matCellDef="let element"> {{element?.phone}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> Id. </th>
-      <td id="link" mat-cell *matCellDef="let element" routerLink="/customers/customer"
-        [queryParams]="{id:element?._id, name: element?.username}"> {{element?._id.substring(0, 5)}}... </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+  <app-customerlist *ngIf="!loading" [dataSource]="dataSource"></app-customerlist>
 </div>

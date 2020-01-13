@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { EditComponent } from './edit/edit.component';
+import { CourselistComponent } from './list/courselist/courselist.component';
 
 
 
@@ -34,6 +35,6 @@ import { EditComponent } from './edit/edit.component';
     MatGridListModule,
     MatSnackBarModule,
   ],
-  declarations: [ListComponent, DetailsComponent, NewComponent, EditComponent]
+  declarations: [ListComponent, DetailsComponent, NewComponent, EditComponent, CourselistComponent]
 })
 export class CoursesModule { }

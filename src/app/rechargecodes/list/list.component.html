@@ -2,18 +2,5 @@
 <div class="container">
   <br>
   <br>
-  <mat-accordion *ngFor="let code of codes">
-    <mat-expansion-panel class="animated slideInUp" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title [style.color]="code.valid ? 'black' : 'red'">
-          {{code.rcode}}
-        </mat-panel-title>
-        <mat-panel-description>
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <mat-action-row>
-        <button mat-raised-button color="warn" (click)="deleteCode(code._id)">Delete Code</button>
-      </mat-action-row>
-    </mat-expansion-panel>
-  </mat-accordion>
+  <app-codelist [codes]="codes" (delete)="deleteCode($event)"></app-codelist>
 </div>
