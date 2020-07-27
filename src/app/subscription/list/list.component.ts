@@ -46,7 +46,6 @@ export class ListComponent implements OnInit {
     this.loading = true;
     this.service.getSubscriptions().subscribe(response => {
       this.subscriptions = response;
-      console.log(this.subscriptions);
       this.loading = false;
     });
   }

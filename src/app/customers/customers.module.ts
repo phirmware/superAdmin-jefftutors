@@ -21,6 +21,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { CustomerlistComponent } from './list/customerlist/customerlist.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { CustomerlistComponent } from './list/customerlist/customerlist.componen
     MatSnackBarModule,
     MatCardModule,
     MatListModule,
+    MatPaginatorModule,
     MatButtonModule,
     MatIconModule,
     MatExpansionModule,

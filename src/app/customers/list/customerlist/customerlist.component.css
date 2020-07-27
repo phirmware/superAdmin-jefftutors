@@ -1,10 +1,14 @@
-
 #link {
   color: rgb(20, 69, 161);
   cursor: pointer;
 }
 
-table {
+.mat-elevation-z8 {
   width: 80%;
+  margin: auto;
+}
+
+table {
+  width: 100% !important;
   margin: auto;
 }
