@@ -17,6 +17,11 @@ export class CustomerlistComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.dataSource = this.dataSource.sort(function (a, b) {
+      const textA = a.username.toUpperCase();
+      const textB = b.username.toUpperCase();
+      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    });
     this.dataSource = new MatTableDataSource(this.dataSource);
     this.dataSource.paginator = this.paginator;
     console.log(this.paginator, 'p');
