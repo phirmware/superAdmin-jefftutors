@@ -25,7 +25,7 @@ export class ListComponent implements OnInit {
     this.getSubscriptions();
   }
 
-  beforeNavigationProperties() {}
+  beforeNavigationProperties() { }
   changeBarTitle() {
     const navProperties: NavigationProperties[] = [
       {
@@ -34,7 +34,7 @@ export class ListComponent implements OnInit {
         route: '/subscription/list'
       }
     ];
-      return navProperties;
+    return navProperties;
   }
 
   filter(value: string) {
