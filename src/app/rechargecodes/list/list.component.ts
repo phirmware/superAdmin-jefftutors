@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ListService } from 'src/app/rechargecodes/list/list.service';
-import { NavigationProperties } from 'src/app/lib/nav-interface';
+import { NavigationProperties } from 'src/app/shared/interfaces/nav-interface';
 import { Router } from '@angular/router';
 
 @Component({

@@ -12,6 +12,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthguardService } from './authguard.service';
 import { MatButtonModule } from '@angular/material/button';
+import { AppnavModule } from './shared/components/appnav/appnav.module';
 
 const routes: Routes = [
   { path: '', redirectTo: 'overview', pathMatch: 'full' },
@@ -38,6 +39,7 @@ const routes: Routes = [
     HttpClientModule,
     MatProgressSpinnerModule,
     MatButtonModule,
+    AppnavModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

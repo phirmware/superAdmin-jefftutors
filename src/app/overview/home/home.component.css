@@ -1,17 +1,24 @@
 mat-card {
   width: 400px;
-  height: 40%;
+  height: 100%;
   border-radius: 5px;
-  margin: 10px;
+  margin: auto;
+  margin-top: 2em;
+  text-align: center;
+}
+
+.value {
+  font-weight: bolder;
+  font-size: 4em;
 }
 
 @media(max-width: 450px) {
-  mat-card{
+  mat-card {
     width: 60vw;
     margin: 10px auto;
   }
 }
 
-span{
+span {
   width: 40px;
 }

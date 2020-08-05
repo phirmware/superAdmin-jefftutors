@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationProperties } from '../../lib/nav-interface';
+import { NavigationProperties } from '../../shared/interfaces/nav-interface';
 import { GenerateService } from './generate.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';

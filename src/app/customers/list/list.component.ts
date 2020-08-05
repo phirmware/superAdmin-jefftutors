@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListService } from './list.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import { NavigationProperties } from 'src/app/lib/nav-interface';
+import { NavigationProperties } from 'src/app/shared/interfaces/nav-interface';
 import { filterFunction } from 'src/app/lib/search';
 
 

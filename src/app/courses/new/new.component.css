@@ -1,5 +1,10 @@
-mat-card{
+mat-card {
   text-align: center;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
 }
 
 .example-container {
@@ -7,6 +12,6 @@ mat-card{
   flex-direction: column;
 }
 
-.example-container > * {
+.example-container>* {
   width: 100%;
 }

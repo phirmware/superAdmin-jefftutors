@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationProperties } from 'src/app/lib/nav-interface';
+import { NavigationProperties } from 'src/app/shared/interfaces/nav-interface';
 import { ListService } from './list.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { filterFunction } from 'src/app/lib/search';

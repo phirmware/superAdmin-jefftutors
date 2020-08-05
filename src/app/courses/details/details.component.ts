@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DetailsService } from './details.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { NavigationProperties } from 'src/app/lib/nav-interface';
+import { NavigationProperties } from 'src/app/shared/interfaces/nav-interface';
 
 @Component({
   selector: 'app-details',

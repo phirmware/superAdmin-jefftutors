@@ -3,7 +3,7 @@ import { ListService } from '../../courses/list/list.service';
 import { ListService as CustomerListService } from '../../customers/list/list.service';
 import { ListService as SubscriptionListService } from '../../subscription/list/list.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { NavigationProperties } from '../../lib/nav-interface';
+import { NavigationProperties } from '../../shared/interfaces/nav-interface';
 
 @Component({
   selector: 'app-home',

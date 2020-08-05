@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavigationProperties } from 'src/app/lib/nav-interface';
+import { NavigationProperties } from 'src/app/shared/interfaces/nav-interface';
 import { DetailsService } from '../details/details.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { EditService } from './edit.service';

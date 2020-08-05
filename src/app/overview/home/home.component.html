@@ -1,28 +1,42 @@
 <div class="container">
-  <mat-card>Number Of Courses
-    <div class="loader" *ngIf="coursesLoading">
-      <mat-spinner></mat-spinner>
+  <div class="row">
+    <div class="col-lg-6">
+      <mat-card>
+        <mat-card-title>Number Of Courses</mat-card-title>
+        <div class="loader" *ngIf="coursesLoading">
+          <mat-spinner></mat-spinner>
+        </div>
+        <div class="value">
+          {{ numberOfCourses }}
+        </div>
+      </mat-card>
     </div>
-    <div>
-      {{ numberOfCourses }}
+    <div class="col-lg-6">
+      <mat-card>
+        <mat-card-title>Number Of Customers</mat-card-title>
+        <div class="loader" *ngIf="customerLoading">
+          <mat-spinner></mat-spinner>
+        </div>
+        <div class="value">
+          {{ numberOfCustomers }}
+        </div>
+      </mat-card>
     </div>
-  </mat-card>
-  <mat-card>
-    Number Of SignUps
-    <div class="loader" *ngIf="customerLoading">
-      <mat-spinner></mat-spinner>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <mat-card>
+        <mat-card-title>Number Of Subscriptions</mat-card-title>
+        <div class="loader" *ngIf="subscriptionLoading">
+          <mat-spinner></mat-spinner>
+        </div>
+        <div class="value">
+          {{ numberOfSubscriptions }}
+        </div>
+      </mat-card>
     </div>
-    <div>
-      {{ numberOfCustomers }}
+    <div class="col-lg-6">
+      <!-- <chart [type]="type" [data]="data" [options]="options"></chart> -->
     </div>
-  </mat-card>
-  <mat-card>
-    Number Of Subscriptions
-    <div class="loader" *ngIf="subscriptionLoading">
-      <mat-spinner></mat-spinner>
-    </div>
-    <div>
-      {{ numberOfSubscriptions }}
-    </div>
-  </mat-card>
+  </div>
 </div>

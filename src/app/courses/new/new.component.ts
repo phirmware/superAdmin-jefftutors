@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationProperties } from 'src/app/lib/nav-interface';
+import { NavigationProperties } from 'src/app/shared/interfaces/nav-interface';
 import { NewService } from './new.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';

@@ -2,7 +2,11 @@ mat-spinner {
   margin: 20% auto;
 }
 
+.container {
+  width: 80%;
+  margin: auto;
+}
+
 .example-spacer {
   flex: 1 1 auto;
 }
-
