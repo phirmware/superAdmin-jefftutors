@@ -8,20 +8,14 @@ import { environment } from '../../../environments/environment';
 export class GenerateService {
 
   url = environment.url;
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      'x-access-token': localStorage.getItem('token')
-    })
-  };
 
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
 
   generateCodes() {
-    return this._http.get(`${this.url}rechargecode`, this.httpOptions);
+    return this._http.get(`${this.url}rechargecode`);
   }
 
   registerCode(code: string) {
-    return this._http.post(`${this.url}rechargecode`, {code}, this.httpOptions);
+    return this._http.post(`${this.url}rechargecode`, { code });
   }
 }

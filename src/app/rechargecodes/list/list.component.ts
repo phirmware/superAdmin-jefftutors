@@ -40,7 +40,6 @@ export class ListComponent implements OnInit {
     this.loading = true;
     this.service.showCodes().subscribe(_response => {
       this.loading = false;
-      console.log(_response);
       this.codes = _response;
     }, (error: HttpErrorResponse) => {
       this.loading = false;

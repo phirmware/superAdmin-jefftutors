@@ -13,22 +13,10 @@ export class ListService {
   constructor(private _http: HttpClient) { }
 
   showCodes() {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'x-access-token': localStorage.getItem('token')
-      })
-    };
-    return this._http.get(`${this.url}rechargecode/list`, httpOptions);
+    return this._http.get(`${this.url}rechargecode/list`);
   }
 
   deleteCode(id: string) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'x-access-token': localStorage.getItem('token')
-      })
-    };
-    return this._http.delete(`${this.url}rechargecode/${id}`, httpOptions);
+    return this._http.delete(`${this.url}rechargecode/${id}`);
   }
 }

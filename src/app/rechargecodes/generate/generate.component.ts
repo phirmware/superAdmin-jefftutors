@@ -17,7 +17,7 @@ export class GenerateComponent implements OnInit {
   color = 'accent';
   checked = false;
 
-  beforeNavigationProperties() {}
+  beforeNavigationProperties() { }
   changeBarTitle() {
     const navProperties: NavigationProperties[] = [
       {
@@ -29,7 +29,7 @@ export class GenerateComponent implements OnInit {
     return navProperties;
   }
 
-  constructor(private service: GenerateService, private _snackBar: MatSnackBar) {}
+  constructor(private service: GenerateService, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -42,11 +42,12 @@ export class GenerateComponent implements OnInit {
 
   generateCodes() {
     this.loading = true;
-    this.service.generateCodes().subscribe(_res => {
+    this.service.generateCodes().subscribe(async _res => {
       this.responseArray = _res;
-      this.addCodePeriodically();
+      await this.addCodePeriodically();
+      this.loading = false;
     }, (error: HttpErrorResponse) => {
-      console.log(error);
+      this._snackBar.open('There was an error generating codes, try again', 'Close');
       this.loading = false;
     });
   }
@@ -55,7 +56,6 @@ export class GenerateComponent implements OnInit {
     for (let i = 0; i < this.responseArray.length; i++) {
       await this.addCodeToArray(i);
     }
-    this.loading = false;
   }
 
   addCodeToArray(i: number) {
