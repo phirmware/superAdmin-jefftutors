@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NavigationProperties } from 'src/app/shared/interfaces/nav-interface';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { StorageService } from '../../shared/services/storage.service';
 
 interface LoginResponse {
   token: string;
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
   error: boolean;
   fetching = false;
 
-  constructor(private service: LoginService, private router: Router, private _snackBar: MatSnackBar) { }
+  constructor(private service: LoginService,
+    private router: Router, private _snackBar: MatSnackBar, private storageService: StorageService) { }
 
   ngOnInit() {
   }
@@ -51,12 +53,12 @@ export class LoginComponent implements OnInit {
     }
     this.fetching = true;
     this.service.login({ email, password }).subscribe((response: LoginResponse) => {
-      localStorage.setItem('token', response.token);
+      this.storageService.setStorageToken(response);
       this.router.navigate(['/overview']);
     }, (error: HttpErrorResponse) => {
       this.fetching = false;
       console.log(error);
-      this.openSnackBar(`Something went wrong. Check if your credentials and try again`, 'close');
+      this.openSnackBar(`Something went wrong. Check your credentials and try again`, 'close');
     });
   }
 

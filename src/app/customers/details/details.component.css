@@ -2,11 +2,22 @@ mat-spinner {
   margin: 15% auto;
 }
 
-span{
+span {
   font-weight: bold;
   color: rgb(62, 67, 73);
 }
 
-mat-form-field{
+mat-form-field {
   width: 100%;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+@media(max-width: 400px) {
+  .container {
+    width: 100%;
+  }
 }

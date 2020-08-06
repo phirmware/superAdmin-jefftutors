@@ -4,9 +4,9 @@
       <mat-icon>equalizer</mat-icon>Super Admin
     </span>
     <span class="example-spacer"></span>
-    <button routerLink="/courses/new" color="primary" mat-raised-button>
-      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">add</mat-icon>Add
-      Course
+    <button color="warn" (click)="logOut()" mat-raised-button>
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">logout</mat-icon>
+      Logout
     </button>
   </mat-toolbar-row>
   <mat-toolbar-row color="primary" style="color:white;background: #673ab7; text-transform: capitalize;">
