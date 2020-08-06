@@ -4,6 +4,7 @@ import { DetailsService } from './details.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NavigationProperties } from 'src/app/shared/interfaces/nav-interface';
+import { PathnameService } from 'src/app/shared/services/pathname.service';
 
 @Component({
   selector: 'app-details',
@@ -21,7 +22,9 @@ export class DetailsComponent implements OnInit {
   email: string;
   courses: any[];
 
-  constructor(private route: ActivatedRoute, private router: Router, private service: DetailsService, private _snackBar: MatSnackBar) { }
+  constructor(private route: ActivatedRoute, private router: Router, private service: DetailsService, private _snackBar: MatSnackBar,
+    private pathNameService: PathnameService,
+  ) { }
 
   ngOnInit() {
     this.loading = true;
@@ -38,7 +41,7 @@ export class DetailsComponent implements OnInit {
         this.openSnackBar(error.message, 'close');
         console.log(error);
       });
-  });
+    });
 
   }
 
@@ -52,14 +55,14 @@ export class DetailsComponent implements OnInit {
       {
         back: false,
         title: 'Customers',
-        route: '/customers'
+        route: this.pathNameService.CUSTOMERS_PATH.list,
       },
       {
         back: true,
         title: this.username,
       }
     ];
-      return navProperties;
+    return navProperties;
   }
 
   openSnackBar(message: string, action: string) {
@@ -75,9 +78,8 @@ export class DetailsComponent implements OnInit {
       token: localStorage.getItem('token')
     };
     this.service.editCustomer(obj, this.id).subscribe(response => {
-      this.router.navigate(['/customers']);
+      this.router.navigate([this.pathNameService.CUSTOMERS_PATH.list]);
     }, (error: HttpErrorResponse) => {
-      console.log(error);
       this.openSnackBar(error.message, 'close');
     });
   }
@@ -93,7 +95,7 @@ export class DetailsComponent implements OnInit {
       token: localStorage.getItem('token')
     };
     this.service.addCourseToCustomer(obj).subscribe(response => {
-      this.router.navigate(['/customers/list']);
+      this.router.navigate([this.pathNameService.CUSTOMERS_PATH.list]);
     }, (error: HttpErrorResponse) => {
       this.openSnackBar(error.error.message, 'close');
     });
@@ -101,9 +103,8 @@ export class DetailsComponent implements OnInit {
 
   deleteUser() {
     this.service.deleteCustomer(this.id).subscribe(response => {
-      this.router.navigate(['/customers/list']);
+      this.router.navigate([this.pathNameService.CUSTOMERS_PATH.list]);
     }, (error: HttpErrorResponse) => {
-      console.log(error);
       this.openSnackBar('Failed', 'close');
     });
   }

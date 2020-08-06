@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ListService } from './list.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { NavigationProperties } from 'src/app/shared/interfaces/nav-interface';
 import { filterFunction } from 'src/app/lib/search';
+import { PathnameService } from 'src/app/shared/services/pathname.service';
 
 
 export interface PeriodicElement {
@@ -25,7 +26,9 @@ export class ListComponent implements OnInit {
   loading = false;
   durationInSeconds = 3;
 
-  constructor(private service: ListService, private _snackBar: MatSnackBar) { }
+  constructor(private service: ListService, private _snackBar: MatSnackBar,
+    private pathNameService: PathnameService,
+  ) { }
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
@@ -33,16 +36,16 @@ export class ListComponent implements OnInit {
     });
   }
 
-  beforeNavigationProperties() {}
+  beforeNavigationProperties() { }
   changeBarTitle() {
     const navProperties: NavigationProperties[] = [
       {
         back: false,
         title: 'Customers',
-        route: '/customers'
+        route: this.pathNameService.CUSTOMERS_PATH.list
       }
     ];
-      return navProperties;
+    return navProperties;
   }
 
   filter(value: string) {

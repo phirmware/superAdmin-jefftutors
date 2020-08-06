@@ -1,16 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-
-interface NewCourse {
-  course_name: string;
-  course_code: string;
-  course_price: string;
-  number_of_courses: number;
-  course_description: string;
-  course_content: string[];
-  token: string;
-}
+import { CourseDetails } from 'src/app/shared/interfaces/course-details-request.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +12,7 @@ export class NewService {
 
   constructor(private http: HttpClient) { }
 
-  createCourse(credentials: NewCourse) {
+  createCourse(credentials: CourseDetails) {
     return this.http.post(`${this.url}course`, credentials);
   }
 

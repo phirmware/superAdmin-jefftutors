@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DetailsService } from './details.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NavigationProperties } from 'src/app/shared/interfaces/nav-interface';
+import { PathnameService } from 'src/app/shared/services/pathname.service';
 
 @Component({
   selector: 'app-details',
@@ -17,10 +18,14 @@ export class DetailsComponent implements OnInit {
   videos: any[];
   courseName: string;
   deleteCount = 0;
+  EDIT_COURSE_PATH: string;
 
-  constructor(private route: ActivatedRoute, private service: DetailsService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private service: DetailsService, private router: Router,
+    private pathNameService: PathnameService,
+  ) { }
 
   ngOnInit() {
+    this.EDIT_COURSE_PATH = this.pathNameService.COURSES_PATH.edit;
   }
 
   beforeNavigationProperties() {
@@ -36,14 +41,14 @@ export class DetailsComponent implements OnInit {
       {
         back: false,
         title: 'Courses',
-        route: '/courses/list'
+        route: this.pathNameService.COURSES_PATH.list,
       },
       {
         back: true,
         title: this.courseName,
       }
     ];
-      return navProperties;
+    return navProperties;
   }
 
   getCourseDetails() {
@@ -60,12 +65,12 @@ export class DetailsComponent implements OnInit {
 
   deleteCourse(id: string) {
     if (this.deleteCount < 5) {
-      this.deleteCount ++;
+      this.deleteCount++;
       return;
     }
     this.service.deleteCourse(id).subscribe(response => {
       console.log(response);
-      this.router.navigate(['/courses/list']);
+      this.router.navigate([this.pathNameService.COURSES_PATH.list]);
     }, (error: HttpErrorResponse) => {
       console.log(error);
     });

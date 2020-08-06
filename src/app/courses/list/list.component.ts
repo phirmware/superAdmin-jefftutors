@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListService } from './list.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NavigationProperties } from 'src/app/shared/interfaces/nav-interface';
+import { PathnameService } from '../../shared/services/pathname.service';
 
 @Component({
   selector: 'app-list',
@@ -13,22 +14,22 @@ export class ListComponent implements OnInit {
   courses: any;
   loading = false;
 
-  constructor(private service: ListService) { }
+  constructor(private service: ListService, private pathNameService: PathnameService) { }
 
   ngOnInit() {
     this.getAllCourses();
   }
 
-  beforeNavigationProperties() {}
+  beforeNavigationProperties() { }
   changeBarTitle() {
     const navProperties: NavigationProperties[] = [
       {
         back: false,
         title: 'Courses',
-        route: '/courses/list'
+        route: this.pathNameService.COURSES_PATH.list,
       }
     ];
-      return navProperties;
+    return navProperties;
   }
 
   getAllCourses() {

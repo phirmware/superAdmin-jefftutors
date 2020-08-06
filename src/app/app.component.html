@@ -4,14 +4,14 @@
       <mat-icon>equalizer</mat-icon>Super Admin
     </span>
     <span class="example-spacer"></span>
-    <button color="warn" (click)="logOut()" mat-raised-button>
+    <button color="warn" (click)="logOut()" *ngIf="isLoggedIn()" mat-raised-button>
       <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">logout</mat-icon>
       Logout
     </button>
   </mat-toolbar-row>
   <mat-toolbar-row color="primary" style="color:white;background: #673ab7; text-transform: capitalize;">
     <mat-icon class="example-icon" mat-button aria-hidden="false" aria-label="Example heart icon"
-      (click)="drawer.toggle()">menu</mat-icon>
+      (click)="drawer.toggle()" *ngIf="isLoggedIn()">menu</mat-icon>
     <span *ngFor="let t of title">
       <span class="title" (click)="navigate(t?.route, t?.queryParams)">
         <span *ngIf="t?.back"> > </span>
@@ -22,7 +22,8 @@
 </mat-toolbar>
 
 <mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav mat-elevation-z8" mode="side">
+  <mat-drawer [style.display]="isLoggedIn() ? 'block' : 'none'" #drawer class="example-sidenav mat-elevation-z8"
+    mode="side">
     <mat-nav-list role="list">
       <mat-list-item *ngFor="let link of navLinks" role="listitem" (click)="navigate(link?.path)">{{ link?.title }}
       </mat-list-item>

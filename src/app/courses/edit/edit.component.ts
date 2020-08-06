@@ -4,16 +4,10 @@ import { NavigationProperties } from 'src/app/shared/interfaces/nav-interface';
 import { DetailsService } from '../details/details.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { EditService } from './edit.service';
+import { StorageService } from 'src/app/shared/services/storage.service';
+import { PathnameService } from 'src/app/shared/services/pathname.service';
+import { CourseDetails } from '../../shared/interfaces/course-details-request.interface';
 
-export interface CourseDetails {
-  course_name: string;
-  course_code: string;
-  course_price: string;
-  number_of_courses: number;
-  course_content: string[];
-  course_description: string;
-  token: string;
-}
 
 @Component({
   selector: 'app-edit',
@@ -34,7 +28,10 @@ export class EditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private courseDetailsService: DetailsService,
-    private service: EditService, private router: Router) { }
+    private service: EditService, private router: Router,
+    private storageService: StorageService,
+    private pathNameService: PathnameService,
+  ) { }
 
   ngOnInit() {
   }
@@ -68,10 +65,10 @@ export class EditComponent implements OnInit {
       course_description: this.course_description,
       course_content: this.course_content.split(','),
       number_of_courses: this.number_of_courses,
-      token: localStorage.getItem('token')
+      token: this.storageService.getStorageToken(),
     };
     this.service.editCourse(this.id, obj).subscribe(response => {
-      this.router.navigate(['/courses/course'], {
+      this.router.navigate([this.pathNameService.COURSES_PATH.course], {
         queryParams: {
           id: this.id,
           name: this.courseName
@@ -87,12 +84,12 @@ export class EditComponent implements OnInit {
       {
         back: false,
         title: 'Courses',
-        route: '/courses/list'
+        route: this.pathNameService.COURSES_PATH.list,
       },
       {
         back: true,
         title: this.courseName,
-        route: '/courses/course',
+        route: this.pathNameService.COURSES_PATH.course,
         queryParams: {
           id: this.id,
           name: this.courseName

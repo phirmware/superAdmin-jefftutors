@@ -24,7 +24,6 @@ export class CustomerlistComponent implements OnInit {
     });
     this.dataSource = new MatTableDataSource(this.dataSource);
     this.dataSource.paginator = this.paginator;
-    console.log(this.paginator, 'p');
   }
 
 }

@@ -22,8 +22,12 @@ export class AppComponent {
     this.title = component.changeBarTitle();
   }
 
+  isLoggedIn() {
+    return this.loginService.isLoggedIn();
+  }
+
   navigate(header: string, query?: any) {
-    if (!this.loginService.isLoggedIn()) {
+    if (!this.isLoggedIn()) {
       this.router.navigate(['/auth']);
       return;
     } else if (!header) {

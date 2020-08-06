@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { CourseDetails } from './edit.component';
+import { CourseDetails } from 'src/app/shared/interfaces/course-details-request.interface';
+
 
 @Injectable({
   providedIn: 'root'
