@@ -46,8 +46,8 @@ export class GenerateComponent implements OnInit {
       this.responseArray = _res;
       await this.addCodePeriodically();
       this.loading = false;
-    }, (error: HttpErrorResponse) => {
-      this._snackBar.open('There was an error generating codes, try again', 'Close');
+    }, (error) => {
+      this._snackBar.open(error, 'Close');
       this.loading = false;
     });
   }
@@ -73,8 +73,8 @@ export class GenerateComponent implements OnInit {
       return;
     }
     this.service.registerCode(code).subscribe(_response => {
-    }, (error: HttpErrorResponse) => {
-      this._snackBar.open(error.error.message, 'close');
+    }, (error) => {
+      this._snackBar.open(error, 'close');
     });
   }
 }

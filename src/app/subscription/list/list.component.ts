@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationProperties } from 'src/app/shared/interfaces/nav-interface';
 import { ListService } from './list.service';
-import { HttpErrorResponse } from '@angular/common/http';
 import { filterFunction } from 'src/app/lib/search';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { PathnameService } from 'src/app/shared/services/pathname.service';
 
 interface ServerResponse {
   data: object;
@@ -19,7 +20,7 @@ export class ListComponent implements OnInit {
   subscriptions: any;
   fetching = false;
 
-  constructor(private service: ListService) { }
+  constructor(private service: ListService, private snackBar: MatSnackBar, private pathNameService: PathnameService) { }
 
   ngOnInit() {
     this.getSubscriptions();
@@ -31,7 +32,7 @@ export class ListComponent implements OnInit {
       {
         back: false,
         title: 'Subscrptions',
-        route: '/subscription/list'
+        route: this.pathNameService.SUBSCRIPTION_PATH.list,
       }
     ];
     return navProperties;
@@ -47,6 +48,8 @@ export class ListComponent implements OnInit {
     this.service.getSubscriptions().subscribe(response => {
       this.subscriptions = response;
       this.loading = false;
+    }, (error) => {
+      this.snackBar.open(error, 'close');
     });
   }
 
@@ -58,8 +61,8 @@ export class ListComponent implements OnInit {
       });
       this.subscriptions.splice(ids.indexOf(id), 1);
       this.fetching = false;
-    }, (error: HttpErrorResponse) => {
-      console.log(error);
+    }, (error) => {
+      this.snackBar.open(error, 'close');
       this.fetching = false;
     });
   }

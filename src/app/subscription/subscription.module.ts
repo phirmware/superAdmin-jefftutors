@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatButtonModule,
     MatProgressBarModule,
     MatPaginatorModule,
+    MatSnackBarModule,
     MatFormFieldModule,
     MatInputModule,
     FormsModule,

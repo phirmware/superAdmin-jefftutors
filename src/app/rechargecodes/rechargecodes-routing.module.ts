@@ -4,8 +4,8 @@ import { GenerateComponent } from './generate/generate.component';
 import { ListComponent } from './list/list.component';
 
 const routes: Routes = [
-  {path: '', component: GenerateComponent},
-  {path: 'list', component: ListComponent}
+  { path: '', component: GenerateComponent },
+  { path: 'list', component: ListComponent }
 ];
 
 @NgModule({

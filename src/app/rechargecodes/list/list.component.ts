@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpErrorResponse } from '@angular/common/http';
 import { ListService } from 'src/app/rechargecodes/list/list.service';
 import { NavigationProperties } from 'src/app/shared/interfaces/nav-interface';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { PathnameService } from 'src/app/shared/services/pathname.service';
 
 @Component({
   selector: 'app-list',
@@ -14,13 +15,13 @@ export class ListComponent implements OnInit {
   loading = false;
   codes: any;
 
-  beforeNavigationProperties() {}
+  beforeNavigationProperties() { }
   changeBarTitle() {
     const navProperties: NavigationProperties[] = [
       {
         back: false,
         title: 'Codes',
-        route: '/codes'
+        route: this.pathNameService.CODES_PATH.root,
       },
       {
         back: true,
@@ -30,7 +31,9 @@ export class ListComponent implements OnInit {
     return navProperties;
   }
 
-  constructor(private service: ListService, private router: Router) { }
+  constructor(private service: ListService, private router: Router, private snackBar: MatSnackBar,
+    private pathNameService: PathnameService
+  ) { }
 
   ngOnInit() {
     this.showCodes();
@@ -41,18 +44,21 @@ export class ListComponent implements OnInit {
     this.service.showCodes().subscribe(_response => {
       this.loading = false;
       this.codes = _response;
-    }, (error: HttpErrorResponse) => {
+    }, (error) => {
       this.loading = false;
+      this.snackBar.open(error, 'close');
     });
   }
 
   deleteCode(id: string) {
     this.service.deleteCode(id).subscribe(response => {
-      const ids = this.codes.map((item: {_id: string}) => {
+      const ids = this.codes.map((item: { _id: string }) => {
         return item._id;
       });
       this.codes.splice(ids.indexOf(id), 1);
-    }, (error: HttpErrorResponse) => {});
+    }, (error) => {
+      this.snackBar.open(error, 'close');
+    });
   }
 
 }
