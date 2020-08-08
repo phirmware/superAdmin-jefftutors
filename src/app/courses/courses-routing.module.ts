@@ -6,8 +6,8 @@ import { NewComponent } from './new/new.component';
 import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'list', pathMatch: 'full'},
-  {component: ListComponent, path: 'list'},
+  { path: '', redirectTo: 'list', pathMatch: 'full' },
+  { component: ListComponent, path: 'list' },
   { component: DetailsComponent, path: 'course' },
   { component: NewComponent, path: 'new' },
   { component: EditComponent, path: 'edit' }

@@ -55,10 +55,9 @@ export class LoginComponent implements OnInit {
     this.service.login({ email, password }).subscribe((response: LoginResponse) => {
       this.storageService.setStorageToken(response);
       this.router.navigate(['/overview']);
-    }, (error: HttpErrorResponse) => {
+    }, (error) => {
       this.fetching = false;
-      console.log(error);
-      this.openSnackBar(`Something went wrong. Check your credentials and try again`, 'close');
+      this.openSnackBar(error, 'close');
     });
   }
 

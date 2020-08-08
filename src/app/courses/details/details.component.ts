@@ -4,6 +4,7 @@ import { DetailsService } from './details.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NavigationProperties } from 'src/app/shared/interfaces/nav-interface';
 import { PathnameService } from 'src/app/shared/services/pathname.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-details',
@@ -21,7 +22,7 @@ export class DetailsComponent implements OnInit {
   EDIT_COURSE_PATH: string;
 
   constructor(private route: ActivatedRoute, private service: DetailsService, private router: Router,
-    private pathNameService: PathnameService,
+    private pathNameService: PathnameService, private snackBar: MatSnackBar,
   ) { }
 
   ngOnInit() {
@@ -58,8 +59,9 @@ export class DetailsComponent implements OnInit {
       this.courseName = this.course.course_name;
       this.videos = this.course.course_content;
       this.loading = false;
-    }, (error: HttpErrorResponse) => {
+    }, (error) => {
       this.loading = false;
+      this.snackBar.open(error, 'close');
     });
   }
 
@@ -69,10 +71,9 @@ export class DetailsComponent implements OnInit {
       return;
     }
     this.service.deleteCourse(id).subscribe(response => {
-      console.log(response);
       this.router.navigate([this.pathNameService.COURSES_PATH.list]);
-    }, (error: HttpErrorResponse) => {
-      console.log(error);
+    }, (error) => {
+      this.snackBar.open(error, 'close');
     });
   }
 

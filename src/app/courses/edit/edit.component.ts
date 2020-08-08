@@ -7,6 +7,7 @@ import { EditService } from './edit.service';
 import { StorageService } from 'src/app/shared/services/storage.service';
 import { PathnameService } from 'src/app/shared/services/pathname.service';
 import { CourseDetails } from '../../shared/interfaces/course-details-request.interface';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -31,6 +32,7 @@ export class EditComponent implements OnInit {
     private service: EditService, private router: Router,
     private storageService: StorageService,
     private pathNameService: PathnameService,
+    private snackBar: MatSnackBar,
   ) { }
 
   ngOnInit() {
@@ -52,8 +54,8 @@ export class EditComponent implements OnInit {
       this.course_name = response.course_name;
       this.course_price = response.course_price;
       this.number_of_courses = response.number_of_courses;
-    }, (error: HttpErrorResponse) => {
-      console.log(error);
+    }, (error) => {
+      this.snackBar.open(error, 'close');
     });
   }
 
@@ -74,8 +76,8 @@ export class EditComponent implements OnInit {
           name: this.courseName
         }
       });
-    }, (error: HttpErrorResponse) => {
-      console.log(error);
+    }, (error) => {
+      this.snackBar.open(error, 'close');
     });
   }
 
@@ -100,7 +102,7 @@ export class EditComponent implements OnInit {
         title: 'Edit',
       }
     ];
-      return navProperties;
+    return navProperties;
   }
 
 }
