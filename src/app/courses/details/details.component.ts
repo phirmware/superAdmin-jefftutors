@@ -20,6 +20,7 @@ export class DetailsComponent implements OnInit {
   courseName: string;
   deleteCount = 0;
   EDIT_COURSE_PATH: string;
+  COURSE_MATERIAL_PATH: string;
 
   constructor(private route: ActivatedRoute, private service: DetailsService, private router: Router,
     private pathNameService: PathnameService, private snackBar: MatSnackBar,
@@ -27,6 +28,7 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
     this.EDIT_COURSE_PATH = this.pathNameService.COURSES_PATH.edit;
+    this.COURSE_MATERIAL_PATH = this.pathNameService.COURSES_PATH.material;
   }
 
   beforeNavigationProperties() {

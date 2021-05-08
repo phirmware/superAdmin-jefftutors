@@ -1,0 +1,6 @@
+<div class="container">
+  <mat-card>
+      <ckeditor [(ngModel)]="model.editorData" [editor]="Editor"></ckeditor>
+  </mat-card>
+  <button mat-raised-button color="primary" (click)="editCourseContent()">Submit</button>
+</div>

@@ -38,5 +38,6 @@
   <mat-card>
     <button mat-raised-button color="warn" (click)="deleteCourse(course?._id)">Delete</button>
     <button mat-raised-button color="primary" [routerLink]="EDIT_COURSE_PATH" [queryParams]="{id:course?._id, name:course?.course_name}">Edit</button>
+    <button mat-raised-button color="secondary" [routerLink]="COURSE_MATERIAL_PATH" [queryParams]="{id:course?._id, name:course?.course_name}">Course Material</button>
   </mat-card>
 </div>

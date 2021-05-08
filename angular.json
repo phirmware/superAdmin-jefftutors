@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "superAdmin"
+  "defaultProject": "superAdmin",
+  "cli": {
+    "analytics": "2c7d0933-4963-4979-8dd9-244db5caaf33"
+  }
 }

@@ -12,7 +12,8 @@ export class PathnameService {
     new: '/courses/new',
     list: '/courses/list',
     edit: '/courses/edit',
-    course: '/courses/course'
+    course: '/courses/course',
+    material: '/courses/material'
   };
 
   public readonly CUSTOMERS_PATH: CustomersPaths = {

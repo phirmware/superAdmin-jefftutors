@@ -17,7 +17,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { EditComponent } from './edit/edit.component';
 import { CourselistComponent } from './list/courselist/courselist.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
+import { ContentComponent } from './content/content.component'
 
 
 @NgModule({
@@ -33,8 +35,9 @@ import { CourselistComponent } from './list/courselist/courselist.component';
     MatInputModule,
     MatListModule,
     MatGridListModule,
+    CKEditorModule,
     MatSnackBarModule,
   ],
-  declarations: [ListComponent, DetailsComponent, NewComponent, EditComponent, CourselistComponent]
+  declarations: [ListComponent, DetailsComponent, NewComponent, EditComponent, CourselistComponent, ContentComponent]
 })
 export class CoursesModule { }

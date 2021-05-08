@@ -24,6 +24,8 @@
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
     "@auth0/angular-jwt": "^3.0.1",
+    "@ckeditor/ckeditor5-angular": "^2.0.1",
+    "@ckeditor/ckeditor5-build-classic": "^27.1.0",
     "angular2-chartjs": "^0.5.1",
     "core-js": "^2.5.4",
     "now": "^16.6.0",

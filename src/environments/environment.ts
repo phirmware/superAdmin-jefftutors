@@ -1,15 +1,16 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-
+// https://studykrib.herokuapp.com
+const base_url = 'http://localhost:5000'
 export const environment = {
   production: false,
   // url: 'http://localhost:3000/api/admin/',
   // base: 'http://localhost:3000/api/',
   // url : 'https://jefftutors-node.nerdeveloper.now.sh/api/admin/',
   // base : 'https://jefftutors-node.nerdeveloper.now.sh/api/'
-  url: 'https://studykrib.herokuapp.com/api/admin/',
-  base: 'https://studykrib.herokuapp.com/api/'
+  url: `${base_url}/api/admin/`,
+  base: `${base_url}/api/`
 };
 
 /*

@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavigationProperties } from 'src/app/shared/interfaces/nav-interface';
 import { DetailsService } from '../details/details.service';
-import { HttpErrorResponse } from '@angular/common/http';
 import { EditService } from './edit.service';
 import { StorageService } from 'src/app/shared/services/storage.service';
 import { PathnameService } from 'src/app/shared/services/pathname.service';
 import { CourseDetails } from '../../shared/interfaces/course-details-request.interface';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class EditComponent implements OnInit {
 
   id: string;
   courseName: string;
-
+  public Editor = ClassicEditor;
   course_name: string;
   course_code: string;
   course_price: string;

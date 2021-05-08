@@ -3,6 +3,7 @@ export interface CoursesPaths {
     course: string;
     new: string;
     edit: string;
+    material: string;
 }
 
 export interface CustomersPaths {
