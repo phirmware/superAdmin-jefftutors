@@ -79,7 +79,7 @@ export class ContentComponent implements OnInit {
     }
 
     this.service.updateCourseContent(this.id, courseData).subscribe(response => {
-      console.log(response)
+      this.snackBar.open('Updated Successfully', 'close');
     }, (error) => {
       console.log(error)
     })
